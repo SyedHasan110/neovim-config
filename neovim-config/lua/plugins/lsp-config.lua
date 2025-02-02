@@ -111,9 +111,9 @@ return {
                         }
                     },
                     on_attach = function(client, bufnr)
+                        vim.opt.updatetime = 200
                         if client.server_capabilities.inlayHintProvider then
-                            vim.opt.updatetime = 500
-                            vim.api.nvim_create_autocmd({ "CursorHold", "CursorMoved" },
+                            vim.api.nvim_create_autocmd({ "CursorHold" },
                                 {
                                     callback = function()
                                         vim.lsp.inlay_hint.enable(true,

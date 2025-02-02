@@ -32,6 +32,12 @@ return {
                         gap = 2,
                         padding = 2,
                         treesitter = { 'lsp' },
+                    },
+                },
+                list = {
+                    selection = {
+                        preselect = false,
+                        auto_insert = false
                     }
                 },
                 documentation = {
