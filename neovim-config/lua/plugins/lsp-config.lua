@@ -72,10 +72,26 @@ return {
         config = function()
             local servers = { "lua_ls", "rust_analyzer", "taplo" }
             local lspconfig = require("lspconfig")
-
+            local M = {}
             local capabilities = require("blink.cmp").get_lsp_capabilities()
             for _, lsp in ipairs(servers) do
                 lspconfig[lsp].setup({
+                    handlers = {
+                        ["experimental/serverStatus"] = function(_, result, ctx, _)
+                            if result.quiescent and not M.ran_once then
+                                for _, bufnr in ipairs(vim.lsp.get_buffers_by_client_id(ctx.client_id)) do
+                                    -- First, toggle disable because bufstate.applied
+                                    -- prevents vim.lsp.inlay_hint(bufnr, true) from refreshing.
+                                    -- Therefore, we need to clear bufstate.applied.
+                                    vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
+                                    -- toggle enable
+                                    vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
+                                end
+                                M.ran_once = true
+                            end
+                        end,
+                    },
+
                     settings = {
                         Lua = {
                             hint = {
@@ -111,15 +127,8 @@ return {
                         }
                     },
                     on_attach = function(client, bufnr)
-                        vim.opt.updatetime = 200
                         if client.server_capabilities.inlayHintProvider then
-                            vim.api.nvim_create_autocmd({ "CursorHold" },
-                                {
-                                    callback = function()
-                                        vim.lsp.inlay_hint.enable(true,
-                                            { bufnr = bufnr })
-                                    end
-                                })
+                            vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
                         end
                     end,
                     capabilities = capabilities
