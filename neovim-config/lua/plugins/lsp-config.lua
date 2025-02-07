@@ -80,10 +80,6 @@ return {
                         ["experimental/serverStatus"] = function(_, result, ctx, _)
                             if result.quiescent and not M.ran_once then
                                 for _, bufnr in ipairs(vim.lsp.get_buffers_by_client_id(ctx.client_id)) do
-                                    -- First, toggle disable because bufstate.applied
-                                    -- prevents vim.lsp.inlay_hint(bufnr, true) from refreshing.
-                                    -- Therefore, we need to clear bufstate.applied.
-                                    vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
                                     -- toggle enable
                                     vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
                                 end
@@ -100,15 +96,6 @@ return {
                         },
                         ["rust-analyzer"] = {
                             inlayHints = {
-                                reborrowHints = {
-                                    enable = "always"
-                                },
-                                lifetimeElisionHints = {
-                                    enable = "always"
-                                },
-                                implicitSizedBoundHints = {
-                                    enable = true
-                                },
                                 implicitDrops = {
                                     enable = true
                                 },
@@ -116,9 +103,6 @@ return {
                                     type = {
                                         enable = true
                                     },
-                                    lifetime = {
-                                        enable = true
-                                    }
                                 },
                                 discriminantHints = {
                                     enable = "always"
