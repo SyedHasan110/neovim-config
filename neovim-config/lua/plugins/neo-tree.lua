@@ -24,17 +24,10 @@ return {
                 },
             },
             source_selector = {
-                winbar = true,
+                winbar = false,
                 statusline = false,
-                sources = {
-                    {
-                        source = "filesystem",           -- string
-                        display_name = " File Explorer " -- string | nil
-                    },
-                },
-                 content_layout = "center"
             },
-           
+
             default_component_configs = {
                 modified = {
                     symbol = "●",
