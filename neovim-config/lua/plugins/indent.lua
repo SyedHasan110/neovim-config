@@ -4,9 +4,9 @@ return {
         require("indentmini").setup({
             -- Colors are applied automatically based on user-defined highlight groups.
             -- There is no default value.
-            vim.cmd.highlight('IndentLine guifg=#6c6f85'),
+            vim.cmd.highlight('IndentLine guifg=#7c7f93'),
             -- Current indent line highlight
-            vim.cmd.highlight('IndentLineCurrent guifg=#bcc0cc')
+            vim.cmd.highlight('IndentLineCurrent guifg=#ccd0da')
         }) -- use default config
-    end,
+    end
 }

@@ -115,7 +115,7 @@ return {
                             vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
                         end
                     end,
-                    capabilities = capabilities
+                    capabilities = capabilities,
                 })
             end
         end

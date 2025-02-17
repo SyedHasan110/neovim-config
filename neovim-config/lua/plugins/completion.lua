@@ -21,6 +21,14 @@ return {
                     treesitter_highlighting = true
                 }
             },
+            keymap = {
+                preset = "enter"
+            },
+            cmdline = {
+                keymap = {
+                    preset = "default"
+                }
+            },
             completion = {
                 menu = {
                     min_width = 30,
@@ -58,7 +66,6 @@ return {
             -- 'super-tab' for mappings similar to vscode (tab to accept, arrow keys to navigate)
             -- 'enter' for mappings similar to 'super-tab' but with 'enter' to accept
             -- See the full "keymap" documentation for information on defining your own keymap.
-            keymap = { preset = 'enter', cmdline = { preset = "default" } },
 
             appearance = {
                 highlight_ns = vim.api.nvim_create_namespace('blink_cmp'),
