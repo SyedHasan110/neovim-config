@@ -5,7 +5,23 @@ return {
     config = function()
         require("catppuccin").setup({
             no_italic = true,
+            integrations = {
+                blink_cmp = true,
+                neotree = true,
+                native_lsp = {
+                    enabled = true,
+                    inlay_hints = {
+                        background = true
+                    },
+                },
+                telescope = {
+                    enabled = true,
+                },
+                treesitter = true,
+                markdown = true,
+                render_markdown = true,
+            },
         })
         vim.cmd.colorscheme("catppuccin-mocha")
-    end,
+    end
 }
