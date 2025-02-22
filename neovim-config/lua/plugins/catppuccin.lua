@@ -20,6 +20,7 @@ return {
                 treesitter = true,
                 markdown = true,
                 render_markdown = true,
+                mason = true,
             },
         })
         vim.cmd.colorscheme("catppuccin-mocha")
