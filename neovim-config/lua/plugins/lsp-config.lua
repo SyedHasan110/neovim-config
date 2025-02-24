@@ -106,6 +106,9 @@ return {
                                 },
                                 discriminantHints = {
                                     enable = "always"
+                                },
+                                cachePriming = {
+                                    numThreads = 255
                                 }
                             }
                         }
