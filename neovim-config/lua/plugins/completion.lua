@@ -3,7 +3,6 @@ return {
         'saghen/blink.cmp',
         -- optional: provides snippets for the snippet source
         dependencies = 'rafamadriz/friendly-snippets',
-
         -- use a release tag to download pre-built binaries
         version = '*',
         -- AND/OR build from source, requires nightly: https://rust-lang.github.io/rustup/concepts/channels.html#working-with-nightly-rust
@@ -18,8 +17,10 @@ return {
                 enabled = true,
                 trigger = {
                     enabled = true,
-                    show_on_insert = true
+                    show_on_insert = true,
+                    show_on_trigger_character = true
                 },
+
                 window = {
                     border = "single",
                     treesitter_highlighting = true,
@@ -37,9 +38,10 @@ return {
             },
             completion = {
                 menu = {
+                    enabled = true,
                     min_width = 30,
                     max_height = 20,
-                    border = 'rounded',
+                    border = 'single',
                     winblend = 0,
                     scrolloff = 0,
                     draw = {
@@ -56,12 +58,12 @@ return {
                 },
                 documentation = {
                     auto_show = true,
-                    auto_show_delay_ms = 100,
+                    treesitter_highlighting = true,
                     window = {
                         min_width = 40,
                         max_width = 50,
                         max_height = 40,
-                        border = 'rounded',
+                        border = 'single',
                         scrollbar = true,
                         winblend = 0,
                     },
@@ -81,7 +83,7 @@ return {
                 use_nvim_cmp_as_default = true,
                 -- Set to 'mono' for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
                 -- Adjusts spacing to ensure icons are aligned
-                nerd_font_variant = 'mono',
+                nerd_font_variant = 'normal',
                 kind_icons = {
                     Text = '󰦨',
                     Method = '',
