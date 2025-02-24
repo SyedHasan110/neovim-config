@@ -16,15 +16,21 @@ return {
         opts = {
             signature = {
                 enabled = true,
+                trigger = {
+                    enabled = true,
+                    show_on_insert = true
+                },
                 window = {
                     border = "single",
-                    treesitter_highlighting = true
+                    treesitter_highlighting = true,
+                    show_documentation = false
                 }
             },
             keymap = {
                 preset = "enter"
             },
             cmdline = {
+                enabled = true,
                 keymap = {
                     preset = "default"
                 }

@@ -2,6 +2,8 @@ return {
     'linrongbin16/lsp-progress.nvim',
     config = function()
         require('lsp-progress').setup({
+            regular_internal_update_time = 200,
+            decay = 100,
             spinner = { "◜ ", "◠ ", "◝ ", "◞ ", "◡ ", "◟" },
             format = function(client_messages)
                 local api = require("lsp-progress.api")
