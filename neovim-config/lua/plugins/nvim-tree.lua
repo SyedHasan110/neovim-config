@@ -39,17 +39,27 @@ return {
             },
             view = {
                 width = 35,
-                signcolumn = "no"
+                signcolumn = "no",
+                preserve_window_proportions = true,
             },
             sync_root_with_cwd = true,
             reload_on_bufenter = true,
             respect_buf_cwd = true,
             renderer = {
+                root_folder_label = false,
                 indent_width = 2,
                 indent_markers = {
                     enable = true,
+                    icons = {
+                        corner = "╰",
+                        edge = "│",
+                        item = "│",
+                        bottom = "-",
+                        none = " ",
+                    },
                 },
                 icons = {
+                    symlink_arrow = "  ",
                     diagnostics_placement = "after",
                     bookmarks_placement = "after",
                     glyphs = {
@@ -65,8 +75,8 @@ return {
                             open = "",
                             empty = "",
                             empty_open = "",
-                            symlink = "",
-                            symlink_open = "",
+                            symlink = "",
+                            symlink_open = "",
                         },
                         git = {
                             unstaged = "✗",
