@@ -7,7 +7,7 @@ return {
             no_italic = true,
             integrations = {
                 blink_cmp = true,
-                neotree = true,
+                nvimtree = true,
                 native_lsp = {
                     enabled = true,
                     inlay_hints = {
