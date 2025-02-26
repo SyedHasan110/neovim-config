@@ -22,7 +22,7 @@ return {
                 },
 
                 window = {
-                    border = "single",
+                    border = "double",
                     treesitter_highlighting = true,
                     show_documentation = true
                 }
@@ -39,11 +39,11 @@ return {
             completion = {
                 menu = {
                     enabled = true,
-                    min_width = 30,
-                    max_height = 20,
+                    min_width = 28,
+                    max_height = 18,
                     winblend = 0,
                     scrolloff = 0,
-                    border = "single",
+                    border = "double",
                     draw = {
                         gap = 2,
                         padding = 1,
@@ -63,7 +63,7 @@ return {
                         min_width = 40,
                         max_width = 50,
                         max_height = 40,
-                        border = 'single',
+                        border = 'double',
                         scrollbar = true,
                         winblend = 0,
                     },

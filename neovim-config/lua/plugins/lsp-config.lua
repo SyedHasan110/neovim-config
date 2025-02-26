@@ -99,16 +99,50 @@ return {
                                 implicitDrops = {
                                     enable = true
                                 },
-                                genericParameterHints = {
-                                    type = {
-                                        enable = true
-                                    },
-                                },
                                 discriminantHints = {
                                     enable = "always"
                                 },
-                                cachePriming = {
-                                    numThreads = 255
+                                genericParameterHints = {
+                                    lifetime = {
+                                        enable = true
+                                    },
+                                    type = {
+                                        enable = true
+                                    }
+                                },
+                                lifetimeElisionHints = {
+                                    enable = "always"
+                                }
+                            },
+                            cachePriming = {
+                                enable = false
+                            },
+                            completion = {
+                                fullFunctionSignatures = {
+                                    enable = true
+                                }
+                            },
+                            diagnostics = {
+                                styleLints = {
+                                    enable = true
+                                }
+                            },
+                            semanticHighlighting = {
+                                operator = {
+                                    specialization = {
+                                        enable = true
+                                    }
+                                },
+                                punctuation = {
+                                    specialization = {
+                                        enable = true
+                                    },
+                                    separate = {
+                                        macro = {
+                                            bang = true
+                                        }
+                                    },
+                                    enable = true
                                 }
                             }
                         }
