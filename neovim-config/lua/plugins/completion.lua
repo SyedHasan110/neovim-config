@@ -31,6 +31,11 @@ return {
                 preset = "enter"
             },
             cmdline = {
+                completion = {
+                    menu = {
+                        auto_show = true
+                    }
+                },
                 enabled = true,
                 keymap = {
                     preset = "default"
@@ -48,6 +53,7 @@ return {
                         gap = 2,
                         padding = 1,
                         treesitter = { 'lsp' },
+                        align_to = "cursor",
                     },
                 },
                 list = {

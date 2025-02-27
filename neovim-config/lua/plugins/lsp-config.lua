@@ -1,6 +1,7 @@
 return {
     {
         "williamboman/mason.nvim",
+        opts = {},
         config = function()
             require("mason").setup({
                 ui = {
@@ -95,6 +96,7 @@ return {
                             }
                         },
                         ["rust-analyzer"] = {
+                            numThreads = 255,
                             inlayHints = {
                                 implicitDrops = {
                                     enable = true
@@ -119,6 +121,9 @@ return {
                             },
                             completion = {
                                 fullFunctionSignatures = {
+                                    enable = true
+                                },
+                                privateEditable = {
                                     enable = true
                                 }
                             },

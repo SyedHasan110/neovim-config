@@ -21,6 +21,8 @@ return {
                 markdown = true,
                 render_markdown = true,
                 mason = true,
+                semantic_tokens = true,
+                treesitter_context = true,
             },
         })
         vim.cmd.colorscheme("catppuccin-mocha")
