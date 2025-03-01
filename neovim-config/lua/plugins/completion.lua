@@ -22,7 +22,7 @@ return {
                 },
 
                 window = {
-                    border = "double",
+                    border = "single",
                     treesitter_highlighting = true,
                     show_documentation = true
                 }
@@ -48,7 +48,7 @@ return {
                     max_height = 18,
                     winblend = 0,
                     scrolloff = 0,
-                    border = "double",
+                    border = "single",
                     draw = {
                         gap = 2,
                         padding = 1,
@@ -57,6 +57,7 @@ return {
                     },
                 },
                 list = {
+                    max_items = 1000,
                     selection = {
                         preselect = false,
                         auto_insert = false
@@ -65,11 +66,12 @@ return {
                 documentation = {
                     auto_show = true,
                     treesitter_highlighting = true,
+                    update_delay_ms = 0,
                     window = {
                         min_width = 40,
                         max_width = 50,
                         max_height = 40,
-                        border = 'double',
+                        border = 'single',
                         scrollbar = true,
                         winblend = 0,
                     },
@@ -119,7 +121,7 @@ return {
                     Folder = '',
                     Event = '',
                     Operator = '',
-                    TypeParameter = '󰰤',
+                    TypeParameter = '',
                 },
             },
 

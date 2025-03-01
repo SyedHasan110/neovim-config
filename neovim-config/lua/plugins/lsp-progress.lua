@@ -8,7 +8,7 @@ return {
             format = function(client_messages)
                 local api = require("lsp-progress.api")
                 -- icon: nf-fa-gear \uf013
-                local sign = " LSP"
+                local sign = " LSP"
                 if #client_messages > 0 then
                     return sign .. " " .. table.concat(client_messages, " ")
                 end

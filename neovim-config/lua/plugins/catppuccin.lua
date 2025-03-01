@@ -9,10 +9,10 @@ return {
                 blink_cmp = true,
                 nvimtree = true,
                 native_lsp = {
-                    enabled = true,
                     inlay_hints = {
                         background = true
                     },
+                    enabled = true,
                 },
                 telescope = {
                     enabled = true,
