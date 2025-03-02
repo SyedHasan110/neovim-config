@@ -5,7 +5,7 @@ return {
     },
     config = function()
         require('tiny-devicons-auto-colors').setup({
-            autoreload = true,
+            autoreload = false,
         })
     end
 }

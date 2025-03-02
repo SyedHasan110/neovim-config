@@ -58,23 +58,53 @@ return {
                 --       Example: automatic_installation = { exclude = { "rust_analyzer", "solargraph" } }
                 ---@type boolean
                 automatic_installation = true,
-                ensure_installed = { "lua_ls", "rust_analyzer", "taplo" },
+                ensure_installed = { "lua_ls", "rust_analyzer", "taplo", },
             })
         end,
     },
     {
         "neovim/nvim-lspconfig",
         dependencies = { 'saghen/blink.cmp' },
-        opts = {
-            inlayHints = {
-                enable = true
-            },
-        },
         config = function()
             local servers = { "lua_ls", "rust_analyzer", "taplo" }
             local lspconfig = require("lspconfig")
             local M = {}
-            local capabilities = require("blink.cmp").get_lsp_capabilities()
+            local capabilities = require("blink.cmp").get_lsp_capabilities({
+                notebookDocument = {
+                    synchronization = {
+                        dynamicRegistration = true
+                    }
+                },
+                workspace = {
+                    inlayHint = {
+                        refreshSupport = true
+                    },
+                    semanticTokens = {
+                        refreshSupport = true
+                    },
+                },
+                textDocument = {
+                    colorProvider = {
+                        dynamicRegistration = true
+                    },
+                    documentHighlight = {
+                        dynamicRegistration = true
+                    },
+                    implementation = {
+                        dynamicRegistration = true
+                    },
+                    signatureHelp = {
+                        contextSupport = true,
+                        dynamicRegistration = true,
+                        signatureInformation = {
+                            activeParameterSupport = true,
+                        }
+                    },
+                    synchronization = {
+                        dynamicRegistration = true
+                    },
+                }
+            }, true)
             for _, lsp in ipairs(servers) do
                 lspconfig[lsp].setup({
                     handlers = {
@@ -96,7 +126,10 @@ return {
                             }
                         },
                         ["rust-analyzer"] = {
-                            numThreads = 255,
+                            numThreads = 5000,
+                            cachePriming = {
+                                numThreads = 5000
+                            },
                             inlayHints = {
                                 implicitDrops = {
                                     enable = true
@@ -115,9 +148,6 @@ return {
                                 lifetimeElisionHints = {
                                     enable = "always"
                                 }
-                            },
-                            cachePriming = {
-                                enable = false
                             },
                             completion = {
                                 fullFunctionSignatures = {
