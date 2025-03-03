@@ -168,13 +168,13 @@ return {
                     },
                     on_attach = function(client, bufnr)
                         if client.server_capabilities.inlayHintProvider then
-                            vim.lsp.handlers["experimental/serverStatus"] = function(_, result, ctx, _)
-                                if result.quiescent == true then
-                                    for _ in ipairs(vim.lsp.get_buffers_by_client_id(ctx.client_id)) do
-                                        vim.lsp.inlay_hint.enable(true, { bufnr = bufnr });
+                            vim.api.nvim_create_autocmd({ "LspAttach", "LspTokenUpdate", "LspNotify" }, {
+                                callback = function(ctx)
+                                    if ctx.buf == bufnr then
+                                        vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
                                     end
                                 end
-                            end
+                            })
                         end
                     end,
                     capabilities = capabilities,
