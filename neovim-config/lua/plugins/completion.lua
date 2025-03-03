@@ -22,6 +22,9 @@ return {
                 },
 
                 window = {
+                    max_width = 30,
+                    min_width = 30,
+                    max_height = 20,
                     border = "single",
                     treesitter_highlighting = true,
                     show_documentation = true
@@ -66,6 +69,8 @@ return {
                 documentation = {
                     auto_show               = true,
                     treesitter_highlighting = true,
+                    auto_show_delay_ms      = 0,
+                    update_delay_ms         = 10,
                     window                  = {
                         min_width = 40,
                         max_width = 50,

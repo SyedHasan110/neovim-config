@@ -58,7 +58,7 @@ return {
                 --       Example: automatic_installation = { exclude = { "rust_analyzer", "solargraph" } }
                 ---@type boolean
                 automatic_installation = true,
-                ensure_installed = { "lua_ls", "rust_analyzer", "taplo", },
+                ensure_installed = { "jsonls", "lua_ls", "rust_analyzer", "taplo", },
             })
         end,
     },
@@ -66,7 +66,7 @@ return {
         "neovim/nvim-lspconfig",
         dependencies = { 'saghen/blink.cmp' },
         config = function()
-            local servers = { "lua_ls", "rust_analyzer", "taplo" }
+            local servers = { "lua_ls", "rust_analyzer", "taplo", "jsonls" }
             local lspconfig = require("lspconfig")
             local capabilities = require("blink.cmp").get_lsp_capabilities({
                 notebookDocument = {

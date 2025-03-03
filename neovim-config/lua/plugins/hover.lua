@@ -25,6 +25,7 @@ return {
                 'LSP'
             },
             mouse_delay = 1000,
+
         }
         -- Setup keymaps
         vim.keymap.set("n", "K", require("hover").hover, { desc = "hover.nvim" })
