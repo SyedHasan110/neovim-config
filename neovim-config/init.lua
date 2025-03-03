@@ -1,19 +1,12 @@
 vim.o.number = true
 require("config.lazy")
-for _, diag in ipairs({ "Error", "Warn", "Info", "Hint" }) do
-    vim.fn.sign_define("DiagnosticSign" .. diag, {
-        text = "",
-        texthl = "DiagnosticSign" .. diag,
-        linehl = "",
-        numhl = "DiagnosticSign" .. diag,
-    })
-end
 vim.diagnostic.config({
     virtual_text = {
         prefix = "●", -- Could be '●', '▎', 'x'
     },
     update_in_insert = true,
     severity_sort = true,
+    signs = false
 })
 
 vim.api.nvim_create_augroup("lualine_augroup", { clear = true })
@@ -36,4 +29,5 @@ ft.setup({
 })
 require("keymap")
 require("whitespace")
+require("general-settings")
 require("general-settings")

@@ -68,7 +68,6 @@ return {
         config = function()
             local servers = { "lua_ls", "rust_analyzer", "taplo" }
             local lspconfig = require("lspconfig")
-            local M = {}
             local capabilities = require("blink.cmp").get_lsp_capabilities({
                 notebookDocument = {
                     synchronization = {
@@ -107,18 +106,6 @@ return {
             }, true)
             for _, lsp in ipairs(servers) do
                 lspconfig[lsp].setup({
-                    handlers = {
-                        ["experimental/serverStatus"] = function(_, result, ctx, _)
-                            if result.quiescent and not M.ran_once then
-                                for _, bufnr in ipairs(vim.lsp.get_buffers_by_client_id(ctx.client_id)) do
-                                    -- toggle enable
-                                    vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
-                                end
-                                M.ran_once = true
-                            end
-                        end,
-                    },
-
                     settings = {
                         Lua = {
                             hint = {
@@ -127,9 +114,6 @@ return {
                         },
                         ["rust-analyzer"] = {
                             numThreads = 5000,
-                            cachePriming = {
-                                numThreads = 5000
-                            },
                             inlayHints = {
                                 implicitDrops = {
                                     enable = true
@@ -184,7 +168,13 @@ return {
                     },
                     on_attach = function(client, bufnr)
                         if client.server_capabilities.inlayHintProvider then
-                            vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
+                            vim.lsp.handlers["experimental/serverStatus"] = function(_, result, ctx, _)
+                                if result.quiescent == true then
+                                    for _ in ipairs(vim.lsp.get_buffers_by_client_id(ctx.client_id)) do
+                                        vim.lsp.inlay_hint.enable(true, { bufnr = bufnr });
+                                    end
+                                end
+                            end
                         end
                     end,
                     capabilities = capabilities,
