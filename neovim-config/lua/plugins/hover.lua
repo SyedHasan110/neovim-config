@@ -24,17 +24,19 @@ return {
             mouse_providers = {
                 'LSP'
             },
-            mouse_delay = 100
+            mouse_delay = 1000,
         }
-
         -- Setup keymaps
         vim.keymap.set("n", "K", require("hover").hover, { desc = "hover.nvim" })
         vim.keymap.set("n", "gK", require("hover").hover_select, { desc = "hover.nvim (select)" })
         vim.keymap.set("n", "<C-p>",
-            function() require("hover").hover_switch("previous", { bufnr = 0, pos = {} }) end,
+            function() require("hover").hover_switch("previous", { bufnr = 0, pos = { 0, 1 } }) end,
             { desc = "hover.nvim (previous source)" })
-        vim.keymap.set("n", "<C-n>",
-            function() require("hover").hover_switch("next", { bufnr = 0, pos = {} }) end,
+        vim.keymap.set("n", "<C-n>", function() require("hover").hover_switch("next", { bufnr = 0, pos = { 0, 1 } }) end,
             { desc = "hover.nvim (next source)" })
+
+        -- Mouse support
+        vim.keymap.set('n', '<MouseMove>', require('hover').hover_mouse, { desc = "hover.nvim (mouse)" })
+        vim.o.mousemoveevent = false
     end
 }

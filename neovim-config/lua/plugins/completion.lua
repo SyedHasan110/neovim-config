@@ -64,9 +64,9 @@ return {
                     }
                 },
                 documentation = {
-                    auto_show = true,
+                    auto_show               = true,
                     treesitter_highlighting = true,
-                    window = {
+                    window                  = {
                         min_width = 40,
                         max_width = 50,
                         max_height = 40,

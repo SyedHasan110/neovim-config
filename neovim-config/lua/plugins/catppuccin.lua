@@ -4,6 +4,7 @@ return {
     priority = 1000,
     config = function()
         require("catppuccin").setup({
+            flavour = "mocha",
             no_italic = true,
             integrations = {
                 blink_cmp = true,
@@ -25,6 +26,6 @@ return {
                 treesitter_context = true,
             },
         })
-        vim.cmd.colorscheme("catppuccin-mocha")
+        vim.cmd.colorscheme("catppuccin")
     end
 }
