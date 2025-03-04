@@ -50,6 +50,7 @@ return {
             },
             completion = {
                 menu = {
+                    auto_show = true,
                     enabled = true,
                     min_width = 28,
                     max_height = 18,

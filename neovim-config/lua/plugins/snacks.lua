@@ -26,8 +26,10 @@ return {
                 }
             },
             explorer = { enabled = false },
-            indent = { enabled = true, },
-            input = { enabled = true },
+            indent = {
+                enabled = true
+            },
+            input = { enabled = true, icon = " " },
             picker = {
                 enabled = true,
                 icons = {
