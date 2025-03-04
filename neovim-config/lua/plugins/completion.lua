@@ -68,9 +68,8 @@ return {
                     },
                 },
                 list = {
-                    max_items = 1000,
                     selection = {
-                        preselect = false,
+                        preselect = true,
                         auto_insert = false
                     }
                 },
@@ -78,7 +77,6 @@ return {
                     auto_show               = true,
                     treesitter_highlighting = true,
                     auto_show_delay_ms      = 0,
-                    update_delay_ms         = 10,
                     window                  = {
                         min_width = 40,
                         max_width = 50,

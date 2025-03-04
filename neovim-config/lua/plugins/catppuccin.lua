@@ -7,6 +7,8 @@ return {
             flavour = "mocha",
             no_italic = true,
             integrations = {
+                dashbnard = true,
+                snacks = true,
                 blink_cmp = true,
                 nvimtree = true,
                 native_lsp = {
