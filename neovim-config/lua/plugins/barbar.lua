@@ -21,7 +21,7 @@ return {
                 },
                 sidebar_filetypes = {
                     -- Use the default values: {event = 'BufWinLeave', text = '', align = 'left'}
-                    NvimTree = { event = 'BufWinLeave', text = 'File Explorer', align = 'center' },
+                    NvimTree = { event = 'BufWinLeave', text = '', align = 'center' },
                     -- Or, specify the text used for the offset:
                     undotree = {
                         text = 'undotree',

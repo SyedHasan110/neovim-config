@@ -22,8 +22,8 @@ return {
                 },
 
                 window = {
-                    max_width = 30,
-                    min_width = 30,
+                    max_width = 50,
+                    min_width = 50,
                     max_height = 20,
                     border = "single",
                     treesitter_highlighting = true,
@@ -35,6 +35,14 @@ return {
             },
             cmdline = {
                 completion = {
+                    ghost_text = {
+                        enabled = true
+                    },
+                    list = {
+                        selection = {
+                            preselect = true
+                        }
+                    },
                     menu = {
                         auto_show = true
                     }
