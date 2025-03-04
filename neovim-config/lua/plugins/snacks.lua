@@ -118,8 +118,17 @@ return {
             quickfile = { enabled = true },
             scope = { enabled = true },
             scroll = { enabled = true },
-            statuscolumn = { enabled = true },
-            words = { enabled = true },
+            statuscolumn = {
+                enabled = true,
+                folds = {
+                    git_hl = true,
+                    open = true
+                },
+                refresh = 20
+            },
+            words = {
+                enabled = true
+            },
 
         })
     end
