@@ -20,7 +20,6 @@ return {
                     show_on_insert = true,
                     show_on_trigger_character = true
                 },
-
                 window = {
                     max_width = 50,
                     min_width = 50,
@@ -73,7 +72,7 @@ return {
                 documentation = {
                     auto_show               = true,
                     treesitter_highlighting = true,
-                    update_delay_ms         = 0,
+                    auto_show_delay_ms      = 0,
                     window                  = {
                         min_width = 40,
                         max_width = 50,
@@ -136,6 +135,14 @@ return {
             -- elsewhere in your config, without redefining it, due to `opts_extend`
             sources = {
                 default = { 'lsp', 'path', 'snippets', 'buffer' },
+
+                providers = {
+                    lazydev = {
+                        name = "LazyDev",
+                        module = 'lazydev.integrations.blink',
+                        score_offset = 100,
+                    }
+                }
             },
         },
         opts_extend = { "sources.default" }

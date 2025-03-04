@@ -26,7 +26,7 @@ return {
                 }
             },
             explorer = { enabled = false },
-            indent = { enabled = true },
+            indent = { enabled = true, },
             input = { enabled = true },
             picker = {
                 enabled = true,
@@ -117,13 +117,18 @@ return {
             },
             quickfile = { enabled = true },
             scope = { enabled = true },
-            scroll = { enabled = true },
+            scroll = {
+                enabled = false,
+            },
             statuscolumn = {
                 enabled = true,
+                left = { 'mark', 'sign' },
+                right = { 'fold', 'git' },
                 folds = {
                     git_hl = true,
                     open = true
                 },
+                git = {},
                 refresh = 20
             },
             words = {
