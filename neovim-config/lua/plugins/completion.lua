@@ -35,9 +35,6 @@ return {
             },
             cmdline = {
                 completion = {
-                    ghost_text = {
-                        enabled = true
-                    },
                     list = {
                         selection = {
                             preselect = true
@@ -76,7 +73,7 @@ return {
                 documentation = {
                     auto_show               = true,
                     treesitter_highlighting = true,
-                    auto_show_delay_ms      = 0,
+                    update_delay_ms         = 0,
                     window                  = {
                         min_width = 40,
                         max_width = 50,
