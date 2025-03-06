@@ -38,7 +38,7 @@ return {
                 enable = true
             },
             view = {
-                width = 35,
+                width = 37,
                 signcolumn = "no",
                 preserve_window_proportions = true,
             },

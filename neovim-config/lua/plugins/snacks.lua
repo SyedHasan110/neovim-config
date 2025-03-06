@@ -27,7 +27,19 @@ return {
             },
             explorer = { enabled = false },
             indent = {
-                enabled = true
+                enabled = true,
+                scope = {
+                    hl = {
+                        'RainbowDelimiterViolet',
+                        'RainbowDelimiterRed',
+                        'RainbowDelimiterYellow',
+                        'RainbowDelimiterBlue',
+                        'RainbowDelimiterOrange',
+                        'RainbowDelimiterGreen',
+                        'RainbowDelimiterCyan',
+                    },
+                    refresh = 10,
+                },
             },
             input = { enabled = true, icon = " " },
             picker = {
@@ -134,7 +146,7 @@ return {
                 refresh = 20
             },
             words = {
-                enabled = true
+                enabled = true,
             },
 
         })
