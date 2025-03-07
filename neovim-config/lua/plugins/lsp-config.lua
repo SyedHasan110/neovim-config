@@ -83,6 +83,18 @@ return {
                     },
                 },
                 textDocument = {
+                    foldingRange = {
+                        dynamicRegistration = true,
+                        lineFoldingOnly = true,
+                    },
+                    semanticTokens = {
+                        formats = {},
+                        requests = {},
+                        tokenModifiers = {},
+                        tokenTypes = {},
+                        dynamicRegistration = true,
+                        multilineTokenSupport = true,
+                    },
                     colorProvider = {
                         dynamicRegistration = true
                     },

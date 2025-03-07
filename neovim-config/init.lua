@@ -18,18 +18,6 @@ vim.api.nvim_create_autocmd("User", {
     end
 })
 
-local ft = require("terminal")
-ft.setup({
-    shell = "bash",       -- Change default shell
-    border = "single",    -- Border style
-    width = 0.65,         -- Relative width
-    height = 0.7,         -- Relative height
-    title_pos = "center", -- Title alignment
-    esc_close = true,     -- Disable Esc closing
-    title = "  Terminal ",
-
-})
 require("keymap")
 require("whitespace")
-require("general-settings")
 require("general-settings")

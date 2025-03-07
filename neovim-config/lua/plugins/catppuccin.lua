@@ -7,6 +7,8 @@ return {
             flavour = "mocha",
             no_italic = true,
             integrations = {
+                notify = true,
+                window_picker = true,
                 symbols_outline = true,
                 dashboard = true,
                 snacks = true,

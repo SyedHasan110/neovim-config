@@ -4,6 +4,38 @@ return {
     lazy = false,
     ---@type snacks.Config
     opts = {},
+    keys = {
+        {
+            "<a-t>",
+            function()
+                Snacks.terminal.toggle({
+                    "bash"
+                }, {
+                    auto_insert = true,
+                    start_insert = true,
+                    win = {
+                        border = "single",
+                        focusable = true,
+                        fixbuf = true,
+                        minimal = false,
+                        height = 0.8,
+                        width = 0.7,
+                        title = "  Terminal ",
+                        title_pos = "center",
+                        mouse = true,
+                    }
+                })
+            end,
+            desc = "Terminal"
+        },
+        {
+            "<a-d>",
+            function()
+                Snacks.picker.diagnostics_buffer()
+            end,
+            desc = "Diagnostics Buffer"
+        }
+    },
     config = function()
         require("snacks").setup({
             -- your configuration comes here
