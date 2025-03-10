@@ -3,6 +3,8 @@ return {
     tag = 'stable',
     config = function()
         require('crates').setup({
+            autoupdate = true,
+            autoload = true,
             lsp = {
                 enabled = true,
                 actions = true,
@@ -10,14 +12,14 @@ return {
                 hover = true,
             },
             completion = {
+                insert_closing_quote = true,
                 crates = {
                     enabled = true,   -- disabled by default
-                    max_results = 12, -- The maximum number of search results to display
-                    min_chars = 1     -- The minimum number of charaters to type before completions begin appearing
+                    max_results = 20, -- The maximum number of search results to display
                 }
             },
-            max_parallel_requests = 300,
-            autoupdate_throttle = 50,
+            max_parallel_requests = 80,
+            autoupdate_throttle = 0,
             text = {
                 searching = "   Searching",
                 loading = "   Loading",
@@ -79,5 +81,5 @@ return {
                 },
             }
         })
-    end,
+    end
 }

@@ -5,10 +5,15 @@ return {
     ---@type snacks.Config
     opts = {
         statuscolumn = {
-            refresh = 10,
+            refresh = 0,
+        },
+        win = {
+            wo = {
+                winblend = 0,
+            }
         },
         notifier = {
-            refresh = 20,
+            refresh = 0,
         },
     },
     keys = {
@@ -24,7 +29,7 @@ return {
                         enter = true,
                         focusable = true,
                         width = 0.7,
-                        height = 0.8
+                        height = 0.8,
                     }
                 })
             end
@@ -39,7 +44,9 @@ return {
         {
             "<leader>ss",
             function()
-                Snacks.picker.lsp_symbols({})
+                Snacks.picker.lsp_symbols({
+                    live = true
+                })
             end,
             desc = "LSP Workspace Symbols"
         },
@@ -186,7 +193,8 @@ return {
             quickfile = { enabled = true },
             scope = {
                 enabled = true,
-                debounce = 20
+                debounce = 10,
+                siblings = true
             },
             scroll = {
                 enabled = false,
@@ -203,6 +211,7 @@ return {
             },
             words = {
                 enabled = true,
+                debounce = 10,
             },
 
         })
