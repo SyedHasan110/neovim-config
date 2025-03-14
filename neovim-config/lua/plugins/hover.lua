@@ -15,7 +15,13 @@ return {
                 -- require('hover.providers.dictionary')
             end,
             preview_opts = {
-                border = 'single'
+                border = 'single',
+                max_width = 60,
+                width = 60,
+                wrap = true,
+                wrap_at = 60,
+                height = 10,
+                max_height = 10
             },
             -- Whether the contents of a currently open hover window should be moved
             -- to a :h preview-window when pressing the hover keymap.

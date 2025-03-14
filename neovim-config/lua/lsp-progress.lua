@@ -2,9 +2,6 @@
 local spinners = { "◜ ", "◠ ", "◝ ", "◞ ", "◡ ", "◟ " }
 local progress_cache = {}
 
--- 3. LSP Progress Handler
-local snacks = require("snacks.notifier")
-
 vim.lsp.handlers["$/progress"] = function(_, result, ctx)
     local client = vim.lsp.get_client_by_id(ctx.client_id)
     local token = result.token
@@ -41,9 +38,9 @@ vim.lsp.handlers["$/progress"] = function(_, result, ctx)
 
         -- Schedule cleanup after 2 seconds
         vim.defer_fn(function()
-            snacks.hide(token)
+            Snacks.notifier.hide(token)
             progress_cache[token] = nil
-        end, 3000)
+        end, 3500)
     end
 
     -- Build message components
@@ -65,9 +62,9 @@ vim.lsp.handlers["$/progress"] = function(_, result, ctx)
     local message_content = table.concat(components, " ")
 
     -- Show notification with fixed title
-    snacks.notify(message_content, vim.log.levels.INFO, {
+    Snacks.notifier.notify(message_content, "info", {
         id = token,
-        timeout = false,
+        timeout = true,
         title = "LSP Progress Status",
     })
 end
