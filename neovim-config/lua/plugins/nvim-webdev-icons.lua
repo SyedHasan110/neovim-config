@@ -83,106 +83,131 @@ return {
         -- same as `override` but specifically for overrides by extension
         -- takes effect when `strict` is true
         override_by_extension        = {
-            ["log"]        = {
+            ["log"]            = {
                 icon = "",
                 color = "#81e043",
                 name = "Log",
             },
-            ["toml"]       = {
+            ["toml"]           = {
                 icon = "",
                 color = "#f57047",
                 name = "Toml",
             },
-            ["lock"]       = {
+            ["lock"]           = {
                 icon = "",
                 color = "#f7f9fa",
                 name = "Lock",
             },
-            ["json5"]      = {
+            ["json5"]          = {
                 icon = "",
                 color = "#ffd726",
                 name = "JSON"
             },
-            ["json"]       = {
+            ["json"]           = {
                 icon = "",
                 color = "#ffd726",
                 name = "JSON"
             },
-            ["js"]         = {
+            ["js"]             = {
                 icon = "",
                 cterm_color = 185,
                 color = "#ffd726",
                 name = "JavaScript"
             },
-            ["conf"]       = {
+            ["conf"]           = {
                 icon = "",
                 name = "conf"
             },
-            ["ini"]        = {
+            ["ini"]            = {
                 icon = "",
                 name = "ini"
             },
-            ["tag"]        = {
+            ["tag"]            = {
                 icon = "",
                 name = "Tag"
             },
-            ["cargo-lock"] = {
+            ["cargo-lock"]     = {
                 icon = "",
                 color = "#f7f9fa",
                 name = "cargo-lock"
             },
-            ["timestamp"]  = {
+            ["timestamp"]      = {
                 icon = "",
                 name = "Timestamp"
             },
-            ["bin"]        = {
+            ["bin"]            = {
                 icon = "",
                 color = "#fab387",
                 name = "Binary"
             },
-            ["o"]          = {
+            ["o"]              = {
                 icon = "",
                 color = "#fab387",
                 name = "Binary"
             },
-            ["txt"]        = {
+            ["txt"]            = {
                 icon = "",
                 name = "Text",
                 color = "#f9e2af"
             },
-            ["sqlite"]     = {
+            ["sqlite"]         = {
                 icon = "",
                 name = "SQLite"
             },
-            ["db"]         = {
+            ["db"]             = {
                 icon = "",
                 name = "Database"
             },
-            ["mdb"]        = {
+            ["mdb"]            = {
                 icon = "",
                 name = "Database"
             },
-            ["kcache"]     = {
+            ["kcache"]         = {
                 icon = "",
                 name = "kcache"
             },
-            ["cache-9"]    = {
+            ["cache-9"]        = {
                 icon = "",
                 name = "cache-9"
             },
-            ["metadata"]   = {
+            ["metadata"]       = {
                 icon = "",
                 name = "metadata"
             },
-            ["png"]        = {
+            ["png"]            = {
                 color = "#b4befe",
                 icon = "",
                 name = "PNG"
             },
-            ["profile"]    = {
+            ["profile"]        = {
                 icon = "",
                 name = "Profile"
             },
+            ["appimage"]       = {
+                icon = "",
+                color = "#b4befe",
+                name = "Appimage"
+            },
+            ["sqlite-shm"]     = {
+                icon = "",
+                name = "SQLite-SHM"
+            },
+            ["sqlite-wal"]     = {
+                icon = "",
+                name = "SQLite-WAL"
+            },
+            ["sqlite-journal"] = {
+                icon = "",
+                name = "SQLite-Journal"
+            },
+            ["delta"]          = {
+                icon = "󰇂",
+                name = "Delta"
+            },
+            ["jsonlz4"]        = {
+                icon = "󰈹",
+                name = "JSONLZ4"
+            }
         },
         -- same as `override` but specifically for operating system
         -- takes effect when `strict` is true

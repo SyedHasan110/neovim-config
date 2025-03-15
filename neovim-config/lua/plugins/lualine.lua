@@ -14,7 +14,7 @@ return {
                 --   statusline = {},
                 --   winbar = {},
                 -- },
-                disabled_filetypes = { "neo-tree" },
+                disabled_filetypes = {},
                 ignore_focus = {},
                 always_divide_middle = true,
                 always_show_tabline = true,
