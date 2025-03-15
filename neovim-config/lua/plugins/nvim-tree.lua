@@ -15,7 +15,7 @@ return {
                 change_dir = {
                     enable = true,
                     global = true,
-                    restrict_above_cwd = false,
+                    restrict_above_cwd = true,
                 }
             },
             diagnostics = {

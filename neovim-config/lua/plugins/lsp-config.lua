@@ -62,7 +62,7 @@ return {
         "neovim/nvim-lspconfig",
         dependencies = { 'saghen/blink.cmp' },
         config = function()
-            local servers = { "lua_ls", "rust_analyzer", "taplo" }
+            local servers = require("mason-lspconfig.settings").current.ensure_installed
             local lspconfig = require("lspconfig")
             local capabilities = require("blink.cmp").get_lsp_capabilities({
                 notebookDocument = {

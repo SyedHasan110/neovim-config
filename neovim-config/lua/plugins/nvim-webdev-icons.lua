@@ -33,8 +33,50 @@ return {
                 color = "#f2762e",
                 name = "Gitignore",
             },
-            ["NvimTree"]   = {
-                icon = "++",
+            [".bash_profile"] = {
+                icon = "",
+                name = "bash_profile",
+                color = "#f9e2af"
+            },
+            [".bashrc"] = {
+                icon = "",
+                name = "bashrc",
+                color = "#f9e2af"
+            },
+            [".bash_history"] = {
+                icon = "",
+                name = "bash_history"
+            },
+            [".bash_logout"] = {
+                icon = "",
+                name = "bash_logout"
+            },
+            [".profile"] = {
+                icon = "",
+                name = "profile"
+            },
+            ["lua-language-server"] = {
+                icon = "",
+                name = "lua-language-server"
+            },
+            ["cookie"] = {
+                icon = "",
+                name = "Cookie"
+            },
+            ["database"] = {
+                icon = "",
+                name = "database"
+            },
+            ["database-shm"] = {
+                icon = "",
+                name = "database-shm",
+            },
+            ["database-wal"] = {
+                icon = "",
+                name = "database-wal"
+            },
+            ["NvimTree_1"] = {
+                icon = "",
                 name = "NvimTree"
             }
         },
@@ -72,11 +114,6 @@ return {
                 color = "#ffd726",
                 name = "JavaScript"
             },
-            default        = {
-                icon = "",
-                color = "#f7f9fa",
-                name = "Default"
-            },
             ["conf"]       = {
                 icon = "",
                 name = "conf"
@@ -107,6 +144,44 @@ return {
                 icon = "",
                 color = "#fab387",
                 name = "Binary"
+            },
+            ["txt"]        = {
+                icon = "",
+                name = "Text",
+                color = "#f9e2af"
+            },
+            ["sqlite"]     = {
+                icon = "",
+                name = "SQLite"
+            },
+            ["db"]         = {
+                icon = "",
+                name = "Database"
+            },
+            ["mdb"]        = {
+                icon = "",
+                name = "Database"
+            },
+            ["kcache"]     = {
+                icon = "",
+                name = "kcache"
+            },
+            ["cache-9"]    = {
+                icon = "",
+                name = "cache-9"
+            },
+            ["metadata"]   = {
+                icon = "",
+                name = "metadata"
+            },
+            ["png"]        = {
+                color = "#b4befe",
+                icon = "",
+                name = "PNG"
+            },
+            ["profile"]    = {
+                icon = "",
+                name = "Profile"
             },
         },
         -- same as `override` but specifically for operating system

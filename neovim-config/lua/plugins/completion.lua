@@ -36,6 +36,7 @@ return {
                 completion = {
                     list = {
                         selection = {
+                            auto_insert = true,
                             preselect = true
                         }
                     },

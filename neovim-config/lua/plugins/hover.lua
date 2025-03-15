@@ -17,11 +17,9 @@ return {
             preview_opts = {
                 border = 'single',
                 max_width = 60,
-                width = 60,
                 wrap = true,
                 wrap_at = 60,
-                height = 10,
-                max_height = 10
+                max_height = 10,
             },
             -- Whether the contents of a currently open hover window should be moved
             -- to a :h preview-window when pressing the hover keymap.
@@ -37,9 +35,9 @@ return {
         vim.keymap.set("n", "K", require("hover").hover, { desc = "hover.nvim" })
         vim.keymap.set("n", "gK", require("hover").hover_select, { desc = "hover.nvim (select)" })
         vim.keymap.set("n", "<C-p>",
-            function() require("hover").hover_switch("previous", { bufnr = 0, pos = { 0, 1 } }) end,
+            function() require("hover").hover_switch("previous", { bufnr = 0, pos = { 0, 0 } }) end,
             { desc = "hover.nvim (previous source)" })
-        vim.keymap.set("n", "<C-n>", function() require("hover").hover_switch("next", { bufnr = 0, pos = { 0, 1 } }) end,
+        vim.keymap.set("n", "<C-n>", function() require("hover").hover_switch("next", { bufnr = 0, pos = { 0, 0 } }) end,
             { desc = "hover.nvim (next source)" })
 
         -- Mouse support

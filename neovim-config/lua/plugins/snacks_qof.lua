@@ -5,7 +5,7 @@ return {
     ---@type snacks.Config
     opts = {
         win = {
-            backdrop = false
+            backdrop = false,
         },
         statuscolumn = {
             refresh = 0,
@@ -13,7 +13,7 @@ return {
         notifier = {
             refresh = 0,
             padding = 0,
-            margin = 0
+            margin = 0,
         },
     },
     keys = {
@@ -209,7 +209,7 @@ return {
             },
             words = {
                 enabled = true,
-                debounce = 10,
+                debounce = 30,
             },
 
         })

@@ -6,7 +6,6 @@ vim.lsp.handlers["$/progress"] = function(_, result, ctx)
     local client = vim.lsp.get_client_by_id(ctx.client_id)
     local token = result.token
     local progress = result.value
-
     -- Get server name with fallback
     local server_name = client and client.name or "LSP Server"
 

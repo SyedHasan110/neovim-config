@@ -28,12 +28,10 @@ return {
             sections = {
                 lualine_a = { { "mode", icon = "" } },
                 lualine_b = { { "branch", icon = "" }, { "diff", icon = "" }, "diagnostics" },
-                lualine_c = {
-                    function()
-                        return require("lsp-progress").progress()
-                    end
-
-                },
+                lualine_c = { {
+                    "lsp_status",
+                    icon = '', -- f013
+                } },
                 lualine_x = { "encoding", "filetype" },
                 lualine_y = { "progress" },
                 lualine_z = { { "location", icon = "" } },
