@@ -121,6 +121,9 @@ return {
                             }
                         },
                         ["rust-analyzer"] = {
+                            cachePriming = {
+                                enable = false
+                            },
                             inlayHints = {
                                 implicitDrops = {
                                     enable = true
@@ -176,10 +179,8 @@ return {
                     on_attach = function(client, bufnr)
                         if client.server_capabilities.inlayHintProvider then
                             vim.api.nvim_create_autocmd({ "LspAttach", "LspTokenUpdate", "LspNotify" }, {
-                                callback = function(ctx)
-                                    if ctx.buf == bufnr then
-                                        vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
-                                    end
+                                callback = function()
+                                    vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
                                 end
                             })
                         end
