@@ -178,7 +178,7 @@ return {
                     },
                     on_attach = function(client, bufnr)
                         if client.server_capabilities.inlayHintProvider then
-                            vim.api.nvim_create_autocmd({ "LspAttach", "LspTokenUpdate", "LspNotify" }, {
+                            vim.api.nvim_create_autocmd({ "LspTokenUpdate" }, {
                                 callback = function()
                                     vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
                                 end

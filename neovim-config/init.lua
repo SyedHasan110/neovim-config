@@ -9,7 +9,6 @@ vim.diagnostic.config({
     signs = false
 })
 
-vim.opt.swapfile = false
 
 require("keymap")
 require("general-settings")

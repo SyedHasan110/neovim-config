@@ -32,7 +32,7 @@ return {
                     "lsp_status",
                     icon = '', -- f013
                 } },
-                lualine_x = { "encoding", "filetype" },
+                lualine_x = { "filesize", "encoding", "filetype" },
                 lualine_y = { "progress" },
                 lualine_z = { { "location", icon = "" } },
             },
