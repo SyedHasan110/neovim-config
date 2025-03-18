@@ -72,6 +72,11 @@ return {
             -- refer to the configuration section below
             bigfile = { enabled = false },
             dashboard = {
+                sections = {
+                    { section = "header" },
+                    { section = "keys", gap = 1, padding = 1 },
+                    { Snacks.dashboard.sections.startup({ icon = "  " }) }
+                },
                 enabled = true,
                 preset = {
                     keys = {
