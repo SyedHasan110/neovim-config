@@ -19,20 +19,21 @@ return {
                 always_divide_middle = true,
                 always_show_tabline = true,
                 globalstatus = true,
+                update_in_insert = true,
                 refresh = {
-                    statusline = 100,
+                    statusline = 50,
                     tabline = 100,
                     winbar = 100,
                 },
             },
             sections = {
                 lualine_a = { { "mode", icon = "" } },
-                lualine_b = { { "branch", icon = "" }, { "diff", icon = "" }, "diagnostics" },
+                lualine_b = { { "branch", icon = "" }, { "diff", icon = "" } },
                 lualine_c = { {
                     "lsp_status",
                     icon = '', -- f013
                 } },
-                lualine_x = { "filesize", "encoding", "filetype" },
+                lualine_x = { "diagnostics", "filesize", "encoding", "filetype" },
                 lualine_y = { "progress" },
                 lualine_z = { { "location", icon = "" } },
             },
@@ -44,9 +45,7 @@ return {
                 lualine_y = { "progress" },
                 lualine_z = { { "location", icon = "" } },
             },
-            tabline = {
-
-            },
+            tabline = {},
             winbar = {},
             inactive_winbar = {},
             extensions = {},
