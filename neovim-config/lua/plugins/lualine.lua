@@ -4,6 +4,24 @@ return {
         { "nvim-tree/nvim-web-devicons" },
     },
     config = function()
+        -- Custom LSP component for lualine
+        local function lsp_component()
+            -- Get active LSP clients for the current buffer
+            local clients = vim.lsp.get_clients({ bufnr = 0 })
+            if #clients == 0 then return "" end
+            -- List of preferred LSP servers (add your installed servers here)
+            local preferred_servers = require("mason-lspconfig").get_installed_servers()
+            -- Find the first active server in the preferred list
+            for _, preferred in ipairs(preferred_servers) do
+                for _, client in ipairs(clients) do
+                    if client.name == preferred then
+                        return " " .. client.name -- Optional icon (e.g., , )
+                    end
+                end
+            end
+
+            return "" -- No preferred server found
+        end
         require("lualine").setup({
             options = {
                 icons_enabled = true,
@@ -29,10 +47,7 @@ return {
             sections = {
                 lualine_a = { { "mode", icon = "" } },
                 lualine_b = { { "branch", icon = "" }, { "diff", icon = "" } },
-                lualine_c = { {
-                    "lsp_status",
-                    icon = '', -- f013
-                } },
+                lualine_c = { { lsp_component } },
                 lualine_x = { "diagnostics", "filesize", "encoding", "filetype" },
                 lualine_y = { "progress" },
                 lualine_z = { { "location", icon = "" } },

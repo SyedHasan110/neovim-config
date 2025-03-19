@@ -29,7 +29,7 @@ return {
         -- takes effect when `strict` is true
         override_by_filename         = {
             [".gitignore"] = {
-                icon = "",
+                icon = "  ",
                 color = "#f2762e",
                 name = "Gitignore",
             },
@@ -68,7 +68,7 @@ return {
                 name = "database"
             },
             ["database-shm"] = {
-                icon = "",
+                icon = " ",
                 name = "database-shm",
             },
             ["database-wal"] = {

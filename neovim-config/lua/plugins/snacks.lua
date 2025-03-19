@@ -3,19 +3,7 @@ return {
     priority = 1000,
     lazy = false,
     ---@type snacks.Config
-    opts = {
-        win = {
-            backdrop = false,
-        },
-        statuscolumn = {
-            refresh = 0,
-        },
-        notifier = {
-            refresh = 0,
-            padding = 0,
-            margin = 0,
-        },
-    },
+    opts = {},
     keys = {
         {
             "<a-t>",
@@ -94,7 +82,6 @@ return {
             explorer = { enabled = false },
             indent = {
                 enabled = true,
-                indent = {},
                 scope = {
                     hl = {
                         'RainbowDelimiterViolet',
@@ -216,7 +203,15 @@ return {
                 enabled = true,
                 debounce = 30,
             },
-
+            styles = {
+                notification = {
+                    relative = "editor",
+                    border = "single",
+                    wo = {
+                        winblend = 0,
+                    }
+                }
+            }
         })
     end
 }

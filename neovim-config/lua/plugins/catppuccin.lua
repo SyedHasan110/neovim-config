@@ -17,19 +17,19 @@ return {
                 native_lsp = {
                     underlines = {
                         errors = {
-                            "undercurl"
+                            "underdashed"
                         },
                         information = {
-                            "undercurl"
+                            "underdashed"
                         },
                         hints = {
-                            "undercurl"
+                            "underdashed"
                         },
                         ok = {
-                            "undercurl"
+                            "underdashed"
                         },
                         warnings = {
-                            "undercurl"
+                            "underdashed"
                         }
                     },
                     inlay_hints = {

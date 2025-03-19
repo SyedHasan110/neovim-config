@@ -54,7 +54,7 @@ return {
                         corner = "╰",
                         edge = "│",
                         item = "│",
-                        bottom = "-",
+                        bottom = "",
                         none = " ",
                     },
                 },

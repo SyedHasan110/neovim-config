@@ -84,6 +84,7 @@ return {
                         lineFoldingOnly = true,
                     },
                     semanticTokens = {
+                        augmentsSyntaxTokens = true,
                         formats = {},
                         requests = {},
                         tokenModifiers = {},

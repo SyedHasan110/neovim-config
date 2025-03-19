@@ -9,7 +9,6 @@ vim.diagnostic.config({
     signs = false
 })
 
-
 require("keymap")
 require("general-settings")
 require("lsp-progress")

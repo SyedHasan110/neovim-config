@@ -13,6 +13,9 @@ return {
         ---@module 'blink.cmp'
         ---@type blink.cmp.Config
         opts = {
+            fuzzy = {
+                implementation = 'lua',
+            },
             signature = {
                 enabled = true,
                 trigger = {
