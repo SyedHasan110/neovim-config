@@ -28,30 +28,30 @@ return {
         -- same as `override` but specifically for overrides by filename
         -- takes effect when `strict` is true
         override_by_filename         = {
-            [".gitignore"] = {
+            [".gitignore"]          = {
                 icon = "  ",
                 color = "#f2762e",
                 name = "Gitignore",
             },
-            [".bash_profile"] = {
+            [".bash_profile"]       = {
                 icon = "",
                 name = "bash_profile",
                 color = "#f9e2af"
             },
-            [".bashrc"] = {
+            [".bashrc"]             = {
                 icon = "",
                 name = "bashrc",
                 color = "#f9e2af"
             },
-            [".bash_history"] = {
+            [".bash_history"]       = {
                 icon = "",
                 name = "bash_history"
             },
-            [".bash_logout"] = {
+            [".bash_logout"]        = {
                 icon = "",
                 name = "bash_logout"
             },
-            [".profile"] = {
+            [".profile"]            = {
                 icon = "",
                 name = "profile"
             },
@@ -59,26 +59,30 @@ return {
                 icon = "",
                 name = "lua-language-server"
             },
-            ["cookie"] = {
+            ["cookie"]              = {
                 icon = "",
                 name = "Cookie"
             },
-            ["database"] = {
+            ["database"]            = {
                 icon = "",
                 name = "database"
             },
-            ["database-shm"] = {
+            ["database-shm"]        = {
                 icon = " ",
                 name = "database-shm",
             },
-            ["database-wal"] = {
+            ["database-wal"]        = {
                 icon = "",
                 name = "database-wal"
             },
-            ["NvimTree_1"] = {
+            ["NvimTree_1"]          = {
                 icon = "",
                 name = "NvimTree"
-            }
+            },
+            ["config"]              = {
+                icon = "",
+                name = "Config"
+            },
         },
         -- same as `override` but specifically for overrides by extension
         -- takes effect when `strict` is true

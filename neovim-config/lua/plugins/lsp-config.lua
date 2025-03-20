@@ -158,6 +158,7 @@ return {
                                 }
                             },
                             semanticHighlighting = {
+                                enable = true,
                                 operator = {
                                     specialization = {
                                         enable = true

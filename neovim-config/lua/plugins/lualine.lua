@@ -19,7 +19,6 @@ return {
                     end
                 end
             end
-
             return "" -- No preferred server found
         end
         require("lualine").setup({
@@ -54,9 +53,9 @@ return {
             },
             inactive_sections = {
                 lualine_a = { { "mode", icon = "" } },
-                lualine_b = { { "branch", icon = "" }, { "diff", icon = "" }, "diagnostics" },
-                lualine_c = { "filename" },
-                lualine_x = { "encoding", "filetype" },
+                lualine_b = { { "branch", icon = "" }, { "diff", icon = "" } },
+                lualine_c = { { lsp_component } },
+                lualine_x = { "diagnostics", "filesize", "encoding", "filetype" },
                 lualine_y = { "progress" },
                 lualine_z = { { "location", icon = "" } },
             },

@@ -10,6 +10,9 @@ return {
         vim.g.loaded_netrwPlugin = 1
         vim.opt.termguicolors = true
         require("nvim-tree").setup({
+            git = {
+                ignore = false
+            },
             actions = {
                 use_system_clipboard = true,
                 change_dir = {
@@ -81,11 +84,11 @@ return {
                         git = {
                             unstaged = "✗",
                             staged = "✓",
-                            unmerged = "",
+                            unmerged = "",
                             renamed = "",
                             untracked = "",
-                            deleted = "",
-                            ignored = "",
+                            deleted = "",
+                            ignored = "",
                         },
                     }
                 }

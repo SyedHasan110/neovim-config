@@ -209,6 +209,7 @@ return {
                     border = "single",
                     wo = {
                         winblend = 0,
+                        wrap = true
                     }
                 }
             }
