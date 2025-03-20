@@ -57,7 +57,7 @@ return {
                     max_height = 18,
                     winblend = 0,
                     scrolloff = 0,
-                    border = "single",
+                    border = "double",
                     draw = {
                         gap = 2,
                         padding = 1,
@@ -79,7 +79,7 @@ return {
                         min_width = 40,
                         max_width = 50,
                         max_height = 40,
-                        border = 'single',
+                        border = "double",
                         scrollbar = true,
                         winblend = 0,
                     },

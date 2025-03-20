@@ -15,7 +15,7 @@ return {
                 -- require('hover.providers.dictionary')
             end,
             preview_opts = {
-                border = 'single',
+                border = 'double',
                 max_width = 60,
                 wrap = true,
                 wrap_at = 60,
