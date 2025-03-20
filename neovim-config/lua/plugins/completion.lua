@@ -24,7 +24,7 @@ return {
                     max_width = 50,
                     min_width = 50,
                     max_height = 20,
-                    border = "single",
+                    border = "double",
                     treesitter_highlighting = true,
                     show_documentation = true
                 }
