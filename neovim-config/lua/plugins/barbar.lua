@@ -9,16 +9,18 @@ return {
         opts = {
             -- lazy.nvim will automatically call setup for you. put your options here, anything missing will use the default:
             -- animation = true,
-            -- insert_at_start = true,
-            -- … etc.
+            insert_at_start = false,
         },
         version = '^1.0.0', -- optional: only update when a new 1.x version is released
         config = function()
             require("barbar").setup({
-                maximum_padding = 2,
+                maximum_padding = 1,
                 icons = {
                     separator = { left = '', right = '' },
-                    separator_at_end = false
+                    separator_at_end = false,
+                    inactive = {
+                        separator = { left = "" }
+                    }
                 },
                 sidebar_filetypes = {
                     -- Use the default values: {event = 'BufWinLeave', text = '', align = 'left'}
