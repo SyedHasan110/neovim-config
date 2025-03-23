@@ -1,7 +1,6 @@
 return {
     "nvimtools/none-ls.nvim",
     config = function()
-        require("null-ls").setup({
-        })
+        require("null-ls").setup({})
     end
 }

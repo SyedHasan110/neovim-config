@@ -41,6 +41,19 @@ return {
         },
     },
     config = function()
+        local function rename_lsp_symbol()
+            local current_word = vim.fn.expand("<cword>")
+            Snacks.input({
+                prompt = "Rename Symbol: ",
+                default = current_word,
+                focus = true,
+            }, function(new_name)
+                vim.lsp.buf.rename(new_name)
+            end)
+        end
+
+        vim.keymap.set("n", "<leader>rn", rename_lsp_symbol, { desc = "Rename symbol via LSP (Snacks)" })
+
         local prev = { new_name = "", old_name = "" } -- Prevents duplicate events
         vim.api.nvim_create_autocmd("User", {
             pattern = "NvimTreeSetup",

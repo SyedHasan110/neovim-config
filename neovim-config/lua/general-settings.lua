@@ -8,7 +8,7 @@ vim.opt.smartindent = true -- indents smartindent
 vim.opt.list = true
 vim.opt.listchars = {
     space = '‧', -- Show spaces as middle dots (·)
-    tab = '‧‧', -- Show tabs as arrows followed by a space (→)
+    tab = '‧‧', -- Show tabs as arrows followed by a space (→ )
     trail = '‧', -- Show trailing spaces as dots (·)
     nbsp = '‧',
 }
