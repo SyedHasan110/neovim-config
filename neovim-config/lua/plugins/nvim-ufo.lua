@@ -21,8 +21,7 @@ return {
                 if filetype == "snacks_dashboard" then
                     require("ufo").detach(bufnr)
                 end
-            end
-
+            end,
         })
     end
 }

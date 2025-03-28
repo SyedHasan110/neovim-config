@@ -11,7 +11,7 @@ return {
             function()
                 Snacks.terminal.toggle("bash", {
                     win = {
-                        border = "double",
+                        border = "single",
                         title = "  Terminal ",
                         title_pos = "center",
                         enter = true,
@@ -47,8 +47,8 @@ return {
                 prompt = "Rename Symbol: ",
                 default = current_word,
                 focus = true,
-            }, function(new_name)
-                vim.lsp.buf.rename(new_name)
+            }, function(rename)
+                vim.lsp.buf.rename(rename)
             end)
         end
 
@@ -219,10 +219,9 @@ return {
             styles = {
                 notification = {
                     relative = "editor",
-                    border = "double",
+                    border = "single",
                     wo = {
                         winblend = 0,
-                        wrap = true
                     }
                 }
             }

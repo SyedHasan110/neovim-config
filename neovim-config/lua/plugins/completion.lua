@@ -23,7 +23,7 @@ return {
                     max_width = 50,
                     min_width = 50,
                     max_height = 20,
-                    border = "double",
+                    border = "single",
                     treesitter_highlighting = true,
                     show_documentation = true
                 }
@@ -52,11 +52,11 @@ return {
                 menu = {
                     auto_show = true,
                     enabled = true,
-                    min_width = 28,
-                    max_height = 18,
+                    min_width = 30,
+                    max_height = 20,
                     winblend = 0,
                     scrolloff = 0,
-                    border = "double",
+                    border = "single",
                     draw = {
                         gap = 2,
                         padding = 1,
@@ -75,10 +75,10 @@ return {
                     treesitter_highlighting = true,
                     auto_show_delay_ms      = 0,
                     window                  = {
-                        min_width = 40,
-                        max_width = 50,
+                        min_width = 30,
+                        max_width = 40,
                         max_height = 40,
-                        border = "double",
+                        border = "single",
                         scrollbar = true,
                         winblend = 0,
                     },

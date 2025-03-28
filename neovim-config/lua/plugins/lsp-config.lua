@@ -122,9 +122,6 @@ return {
                             }
                         },
                         ["rust-analyzer"] = {
-                            cachePriming = {
-                                enable = false
-                            },
                             inlayHints = {
                                 implicitDrops = {
                                     enable = true
