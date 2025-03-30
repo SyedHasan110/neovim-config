@@ -211,11 +211,6 @@ return {
             ["jsonlz4"]        = {
                 icon = "󰈹",
                 name = "JSONLZ4"
-            },
-            ["desktop"]        = {
-                icon = "",
-                color = "#9399b2",
-                name = "Desktop"
             }
         },
         -- same as `override` but specifically for operating system

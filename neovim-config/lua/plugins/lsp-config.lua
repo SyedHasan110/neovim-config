@@ -11,7 +11,7 @@ return {
 
                     ---@since 1.0.0
                     -- The border to use for the UI window. Accepts same border values as |nvim_open_win()|.
-                    border = "single",
+                    border = "double",
 
                     ---@since 1.0.0
                     -- Width of the window. Accepts:
@@ -122,6 +122,9 @@ return {
                             }
                         },
                         ["rust-analyzer"] = {
+                            cachePriming = {
+                                enable = false
+                            },
                             inlayHints = {
                                 implicitDrops = {
                                     enable = true

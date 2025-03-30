@@ -49,7 +49,7 @@ return {
                 fzf = true,
                 treesitter_context = true,
                 rainbow_delimiters = true,
-
+                gitsigns = true
             },
         })
         vim.cmd.colorscheme("catppuccin")
