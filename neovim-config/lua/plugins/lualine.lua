@@ -4,22 +4,35 @@ return {
         { "nvim-tree/nvim-web-devicons" },
     },
     config = function()
-        -- Custom LSP component for lualine
         local function lsp_component()
-            -- Get active LSP clients for the current buffer
+            -- Custom LSP component for lualine
+            -- Get all active LSP clients for the current buffer
             local clients = vim.lsp.get_clients({ bufnr = 0 })
             if #clients == 0 then return "" end
-            -- List of preferred LSP servers (add your installed servers here)
+
+            -- Define your preferred LSP servers (order affects display priority)
             local preferred_servers = require("mason-lspconfig").get_installed_servers()
-            -- Find the first active server in the preferred list
-            for _, preferred in ipairs(preferred_servers) do
-                for _, client in ipairs(clients) do
-                    if client.name == preferred then
-                        return " " .. client.name -- Optional icon (e.g., , )
-                    end
-                end
+
+            -- Collect all client names
+            local names = {}
+            for _, client in ipairs(clients) do
+                table.insert(names, client.name)
             end
-            return "" -- No preferred server found
+
+            -- Sort names based on preferred order (preferred first, others follow)
+            local preferred_index = {}
+            for idx, server in ipairs(preferred_servers) do
+                preferred_index[server] = idx
+            end
+
+            table.sort(names, function(a, b)
+                local a_pos = preferred_index[a] or #preferred_servers + 1
+                local b_pos = preferred_index[b] or #preferred_servers + 1
+                return a_pos < b_pos
+            end)
+
+            -- Format the output with an icon and commas
+            return " " .. table.concat(names, ", ") -- Use your preferred icon
         end
         require("lualine").setup({
             options = {
