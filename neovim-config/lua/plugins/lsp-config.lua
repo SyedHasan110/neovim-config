@@ -54,6 +54,7 @@ return {
                 --       Example: automatic_installation = { exclude = { "rust_analyzer", "solargraph" } }
                 ---@type boolean
                 automatic_installation = true,
+                automatic_enable = true,
                 ensure_installed = { "lua_ls", "rust_analyzer", "taplo", "cssls", "emmet_language_server", "ts_ls", "html" },
             })
         end,
@@ -62,134 +63,15 @@ return {
         "neovim/nvim-lspconfig",
         dependencies = { 'saghen/blink.cmp' },
         config = function()
-            local servers = require("mason-lspconfig").get_installed_servers()
-            local lspconfig = require("lspconfig")
-            local capabilities = require("blink.cmp").get_lsp_capabilities({
-                notebookDocument = {
-                    synchronization = {
-                        dynamicRegistration = true
+            vim.lsp.config("*", {
+                settings = {
+                    Lua = {
+                        hint = {
+                            enable = true
+                        }
                     }
-                },
-                workspace = {
-                    inlayHint = {
-                        refreshSupport = true
-                    },
-                    semanticTokens = {
-                        refreshSupport = true
-                    },
-                },
-                textDocument = {
-                    foldingRange = {
-                        dynamicRegistration = true,
-                        lineFoldingOnly = true,
-                    },
-                    semanticTokens = {
-                        augmentsSyntaxTokens = true,
-                        formats = {},
-                        requests = {},
-                        tokenModifiers = {},
-                        tokenTypes = {},
-                        dynamicRegistration = true,
-                        multilineTokenSupport = true,
-                    },
-                    colorProvider = {
-                        dynamicRegistration = true
-                    },
-                    documentHighlight = {
-                        dynamicRegistration = true
-                    },
-                    implementation = {
-                        dynamicRegistration = true
-                    },
-                    signatureHelp = {
-                        contextSupport = true,
-                        dynamicRegistration = true,
-                        signatureInformation = {
-                            activeParameterSupport = true,
-                        }
-                    },
-                    synchronization = {
-                        dynamicRegistration = true
-                    },
                 }
-            }, true)
-            for _, lsp in ipairs(servers) do
-                lspconfig[lsp].setup({
-                    settings = {
-                        Lua = {
-                            hint = {
-                                enable = true
-                            }
-                        },
-                        ["rust-analyzer"] = {
-                            cachePriming = {
-                                enable = false
-                            },
-                            inlayHints = {
-                                implicitDrops = {
-                                    enable = true
-                                },
-                                discriminantHints = {
-                                    enable = "always"
-                                },
-                                genericParameterHints = {
-                                    lifetime = {
-                                        enable = true
-                                    },
-                                    type = {
-                                        enable = true
-                                    }
-                                },
-                                lifetimeElisionHints = {
-                                    enable = "always"
-                                }
-                            },
-                            completion = {
-                                fullFunctionSignatures = {
-                                    enable = true
-                                },
-                                privateEditable = {
-                                    enable = true
-                                }
-                            },
-                            diagnostics = {
-                                styleLints = {
-                                    enable = true
-                                }
-                            },
-                            semanticHighlighting = {
-                                enable = true,
-                                operator = {
-                                    specialization = {
-                                        enable = true
-                                    }
-                                },
-                                punctuation = {
-                                    specialization = {
-                                        enable = true
-                                    },
-                                    separate = {
-                                        macro = {
-                                            bang = true
-                                        }
-                                    },
-                                    enable = true
-                                }
-                            }
-                        }
-                    },
-                    on_attach = function(client, bufnr)
-                        if client.server_capabilities.inlayHintProvider then
-                            vim.api.nvim_create_autocmd({ "LspTokenUpdate" }, {
-                                callback = function()
-                                    vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
-                                end
-                            })
-                        end
-                    end,
-                    capabilities = capabilities,
-                })
-            end
+            })
         end
     }
 }
