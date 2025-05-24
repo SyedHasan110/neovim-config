@@ -63,13 +63,21 @@ return {
         "neovim/nvim-lspconfig",
         dependencies = { 'saghen/blink.cmp' },
         config = function()
+            vim.api.nvim_create_autocmd("LspTokenUpdate", {
+                callback = function(args)
+                    vim.lsp.inlay_hint.enable(true, { bufnr = args.buf })
+                end
+            })
+
             vim.lsp.config("*", {
                 settings = {
+                    ["rust_analyzer"] = {
+                    },
                     Lua = {
                         hint = {
                             enable = true
                         }
-                    }
+                    },
                 }
             })
         end

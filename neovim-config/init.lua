@@ -12,5 +12,3 @@ vim.diagnostic.config({
 require("keymap")
 require("general-settings")
 require("lsp-progress")
-
-vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
