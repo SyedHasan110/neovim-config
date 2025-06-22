@@ -55,7 +55,7 @@ return {
                 ---@type boolean
                 automatic_installation = true,
                 automatic_enable = true,
-                ensure_installed = { "lua_ls", "rust_analyzer", "taplo", "cssls", "emmet_language_server", "ts_ls", "html" },
+                ensure_installed = { "lua_ls", "rust_analyzer", "taplo" },
             })
         end,
     },
@@ -63,22 +63,31 @@ return {
         "neovim/nvim-lspconfig",
         dependencies = { 'saghen/blink.cmp' },
         config = function()
-            vim.api.nvim_create_autocmd("LspTokenUpdate", {
-                callback = function(args)
-                    vim.lsp.inlay_hint.enable(true, { bufnr = args.buf })
-                end
-            })
-
-            vim.lsp.config("*", {
+            vim.lsp.config("lua_ls", {
                 settings = {
-                    ["rust_analyzer"] = {
-                    },
                     Lua = {
                         hint = {
                             enable = true
                         }
                     },
                 }
+            })
+            vim.lsp.config('rust_analyzer', {
+                -- Server-specific settings. See `:help lsp-quickstart`
+                settings = {
+                    ['rust-analyzer'] = {
+                        inlayHints = {
+                            discriminantHints = {
+                                enable = "always"
+                            }
+                        }
+                    },
+                },
+            })
+            vim.api.nvim_create_autocmd("LspTokenUpdate", {
+                callback = function(args)
+                    vim.lsp.inlay_hint.enable(true, { bufnr = args.buf })
+                end
             })
         end
     }
