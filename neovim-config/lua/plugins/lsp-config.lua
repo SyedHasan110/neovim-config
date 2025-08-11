@@ -39,11 +39,14 @@ return {
 					},
 				},
 			})
-
-			local stylua = require("mason-registry").get_package("stylua")
-			if not stylua:is_installed() then
-				stylua:install()
-			end
+			-- Install Stylua when registry is ready
+			local registry = require("mason-registry")
+			registry.refresh(function()
+				local stylua = registry.get_package("stylua")
+				if not stylua:is_installed() then
+					stylua:install()
+				end
+			end)
 		end,
 	},
 	{
