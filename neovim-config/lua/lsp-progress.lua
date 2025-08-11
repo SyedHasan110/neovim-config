@@ -12,7 +12,6 @@ vim.lsp.handlers["$/progress"] = function(_, result, ctx)
         spinner_idx = 0,
         title = nil,
     }
-
     -- Track LSP title and spinner state
     if progress.kind == "begin" then
         progress_cache[token].title = progress.title
@@ -35,7 +34,7 @@ vim.lsp.handlers["$/progress"] = function(_, result, ctx)
         vim.defer_fn(function()
             Snacks.notifier.hide(token)
             progress_cache[token] = nil
-        end, 3500)
+        end, 1000)
     end
 
     -- Build message components
