@@ -71,8 +71,15 @@ return {
 		"neovim/nvim-lspconfig",
 		dependencies = { "saghen/blink.cmp" },
 		config = function()
-			vim.lsp.config("lua_ls", {
+			vim.lsp.config("*", {
 				settings = {
+					["rust-analyzer"] = {
+						inlayHints = {
+							discriminantHints = {
+								enable = "always",
+							},
+						},
+					},
 					Lua = {
 						format = {
 							enable = true,
@@ -84,18 +91,6 @@ return {
 						},
 						hint = {
 							enable = true,
-						},
-					},
-				},
-			})
-			vim.lsp.config("rust_analyzer", {
-				-- Server-specific settings. See `:help lsp-quickstart`
-				settings = {
-					["rust-analyzer"] = {
-						inlayHints = {
-							discriminantHints = {
-								enable = "always",
-							},
 						},
 					},
 				},

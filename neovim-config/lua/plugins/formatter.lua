@@ -4,6 +4,7 @@ return {
 	config = function()
 		require("conform").setup({
 			format_after_save = {
+				lsp_format = "fallback",
 				async = true,
 			},
 			formatters_by_ft = {

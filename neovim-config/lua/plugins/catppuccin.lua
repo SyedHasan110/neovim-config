@@ -55,7 +55,29 @@ return {
 					render_markdown = true,
 					symbols_outline = true,
 					rainbow_delimiters = true,
-					native_lsp = true,
+					native_lsp = {
+						underlines = {
+							errors = {
+								"underdashed",
+							},
+							information = {
+								"underdashed",
+							},
+							hints = {
+								"underdashed",
+							},
+							ok = {
+								"underdashed",
+							},
+							warnings = {
+								"underdashed",
+							},
+						},
+						inlay_hints = {
+							background = true,
+						},
+						enabled = true,
+					},
 					markdown = true,
 
 					gitsigns = true,
