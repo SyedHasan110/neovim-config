@@ -8,6 +8,7 @@ return {
 				async = true,
 			},
 			formatters_by_ft = {
+				cpp = { "clang-format" },
 				lua = { "stylua" },
 				-- Conform will run multiple formatters sequentially
 				-- python = { "isort", "black" },

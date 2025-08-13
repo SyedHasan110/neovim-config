@@ -39,14 +39,16 @@ return {
 					},
 				},
 			})
-			-- Install Stylua when registry is ready
-			local registry = require("mason-registry")
-			registry.refresh(function()
-				local stylua = registry.get_package("stylua")
-				if not stylua:is_installed() then
-					stylua:install()
+			local mr = require("mason-registry")
+			local formatters = {
+				"stylua",
+			}
+			for _, tool in ipairs(formatters) do
+				local pkg = mr.get_package(tool)
+				if not pkg:is_installed() then
+					pkg:install()
 				end
-			end)
+			end
 		end,
 	},
 	{
@@ -77,6 +79,24 @@ return {
 						inlayHints = {
 							discriminantHints = {
 								enable = "always",
+							},
+						},
+						semanticHighlighting = {
+							operator = {
+								specialization = {
+									enable = true,
+								},
+							},
+							punctuation = {
+								enable = true,
+								separate = {
+									macro = {
+										bang = true,
+									},
+								},
+								specialization = {
+									enable = true,
+								},
 							},
 						},
 					},
