@@ -43,12 +43,14 @@ return {
 			local formatters = {
 				"stylua",
 			}
-			for _, tool in ipairs(formatters) do
-				local pkg = mr.get_package(tool)
-				if not pkg:is_installed() then
-					pkg:install()
+			mr.refresh(function()
+				for _, tool in ipairs(formatters) do
+					local pkg = mr.get_package(tool)
+					if not pkg:is_installed() then
+						pkg:install()
+					end
 				end
-			end
+			end)
 		end,
 	},
 	{
