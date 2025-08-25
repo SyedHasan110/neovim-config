@@ -34,7 +34,7 @@ vim.lsp.handlers["$/progress"] = function(_, result, ctx)
 		vim.defer_fn(function()
 			Snacks.notifier.hide(token)
 			progress_cache[token] = nil
-		end, 800)
+		end, 2000)
 	end
 
 	-- Build message components
