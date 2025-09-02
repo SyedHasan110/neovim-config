@@ -42,6 +42,8 @@ return {
 			local mr = require("mason-registry")
 			local formatters = {
 				"stylua",
+				"html-lsp",
+				"emmet-language-server",
 			}
 			mr.refresh(function()
 				for _, tool in ipairs(formatters) do
@@ -67,7 +69,14 @@ return {
 				---@type boolean
 				automatic_installation = true,
 				automatic_enable = true,
-				ensure_installed = { "lua_ls", "rust_analyzer", "taplo", "clangd" },
+				ensure_installed = {
+					"lua_ls",
+					"rust_analyzer",
+					"taplo",
+					"clangd",
+					"vtsls",
+					"cssls",
+				},
 			})
 		end,
 	},
@@ -77,6 +86,16 @@ return {
 		config = function()
 			vim.lsp.config("*", {
 				settings = {
+					typescript = {
+						inlayHints = {
+							parameterNames = { enabled = "literals" },
+							parameterTypes = { enabled = true },
+							variableTypes = { enabled = true },
+							propertyDeclarationTypes = { enabled = true },
+							functionLikeReturnTypes = { enabled = true },
+							enumMemberValues = { enabled = true },
+						},
+					},
 					["rust-analyzer"] = {
 						inlayHints = {
 							discriminantHints = {
@@ -122,6 +141,7 @@ return {
 					vim.lsp.inlay_hint.enable(true, { bufnr = args.buf })
 				end,
 			})
+			require("lspconfig").vtsls.setup({})
 		end,
 	},
 }
