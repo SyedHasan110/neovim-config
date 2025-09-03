@@ -1,3 +1,7 @@
+-- =================================================================
+-- Custom LSP Progress Handler
+-- NOTE: This requires a notification plugin that provides `Snacks.notifier`.
+-- =================================================================
 local spinners = { "◜ ", "◠ ", "◝ ", "◞ ", "◡ ", "◟ " }
 local progress_cache = {}
 
@@ -7,54 +11,78 @@ vim.lsp.handlers["$/progress"] = function(_, result, ctx)
 	local progress = result.value
 	local server_name = client and client.name or "LSP Server"
 
-	-- Initialize token cache if needed
-	progress_cache[token] = progress_cache[token] or {
-		spinner_idx = 0,
-		title = nil,
-	}
-	-- Track LSP title and spinner state
-	if progress.kind == "begin" then
-		progress_cache[token].title = progress.title
-		progress_cache[token].spinner_idx = 0
-	elseif progress.kind == "report" then
-		progress_cache[token].spinner_idx = (progress_cache[token].spinner_idx + 1) % #spinners
+	local cache_entry = progress_cache[token]
+
+	-- If a new task begins for a token that had a pending cleanup timer,
+	-- cancel the old timer to prevent it from closing the new notification.
+	if progress.kind == "begin" and cache_entry and cache_entry.cleanup_timer then
+		vim.fn.timer_stop(cache_entry)
 	end
 
-	local cached = progress_cache[token]
-	local spinner = spinners[cached.spinner_idx + 1] or " "
-	local percentage = progress.percentage or 0
-	local message = progress.message or ""
-	local lsp_title = cached.title
+	-- Initialize or reset the cache entry when a task starts.
+	if progress.kind == "begin" then
+		progress_cache[token] = {
+			spinner_idx = 1, -- Start at the first spinner
+			title = progress.title,
+			cleanup_timer = nil,
+		}
+		cache_entry = progress_cache[token]
+	-- A 'report' or 'end' should not happen without a 'begin', but we check to be safe.
+	elseif not cache_entry then
+		return
+	end
 
-	-- Handle completion
-	if progress.kind == "end" or percentage >= 100 then
+	-- Update spinner state on 'report'.
+	if progress.kind == "report" then
+		cache_entry.spinner_idx = (cache_entry.spinner_idx % #spinners) + 1
+	end
+
+	local spinner = spinners[cache_entry.spinner_idx] or " "
+	local percentage = progress.percentage
+	local message = progress.message
+	local lsp_title = cache_entry.title
+
+	-- Handle completion state.
+	if progress.kind == "end" then
 		spinner = "✓ "
-		percentage = 100
-		-- Cleanup after 3.5 seconds (async)
-		vim.defer_fn(function()
-			Snacks.notifier.hide(token)
+		-- For display purposes, show 100% on completion if no percentage is given.
+		if percentage == nil then
+			percentage = 100
+		end
+
+		-- Schedule the cleanup and store the timer ID so we can cancel it if needed.
+		cache_entry.cleanup_timer = vim.defer_fn(function()
+			if Snacks and Snacks.notifier and Snacks.notifier.hide then
+				Snacks.notifier.hide(token)
+			end
 			progress_cache[token] = nil
 		end, 2000)
 	end
 
-	-- Build message components
-	local components = {
-		spinner,
-		"[" .. server_name .. "]",
-		lsp_title,
-	}
-
-	if message ~= "" then
+	-- Safely build message components, only including parts that exist.
+	local components = { spinner, "[" .. server_name .. "]" }
+	if lsp_title and lsp_title ~= "" then
+		table.insert(components, lsp_title)
+	end
+	if message and message ~= "" then
 		table.insert(components, message)
 	end
-
-	table.insert(components, "(" .. percentage .. "%)")
+	if percentage then
+		table.insert(components, string.format("(%.0f%%)", percentage))
+	end
 
 	local message_content = table.concat(components, " ")
-	-- Show notification (async via Snacks)
-	Snacks.notifier.notify(message_content, "info", {
-		id = token,
-		timeout = true,
-		title = "LSP Progress Status",
-	})
+
+	-- Show notification (async via a notifier like nvim-notify or a custom one)
+	-- Ensure your `Snacks.notifier` is correctly configured.
+	if Snacks and Snacks.notifier and Snacks.notifier.notify then
+		Snacks.notifier.notify(message_content, "info", {
+			id = token,
+			timeout = true, -- Let the notifier handle the timeout
+			title = "LSP Progress",
+		})
+	else
+		-- Fallback to vim.notify if Snacks is not available
+		vim.notify(message_content, vim.log.levels.INFO, { title = "LSP Progress" })
+	end
 end
