@@ -56,7 +56,7 @@ vim.lsp.handlers["$/progress"] = function(_, result, ctx)
 				Snacks.notifier.hide(token)
 			end
 			progress_cache[token] = nil
-		end, 2000)
+		end, 1800)
 	end
 
 	-- Safely build message components, only including parts that exist.
@@ -73,16 +73,9 @@ vim.lsp.handlers["$/progress"] = function(_, result, ctx)
 
 	local message_content = table.concat(components, " ")
 
-	-- Show notification (async via a notifier like nvim-notify or a custom one)
-	-- Ensure your `Snacks.notifier` is correctly configured.
-	if Snacks and Snacks.notifier and Snacks.notifier.notify then
-		Snacks.notifier.notify(message_content, "info", {
-			id = token,
-			timeout = true, -- Let the notifier handle the timeout
-			title = "LSP Progress",
-		})
-	else
-		-- Fallback to vim.notify if Snacks is not available
-		vim.notify(message_content, vim.log.levels.INFO, { title = "LSP Progress" })
-	end
+	Snacks.notifier.notify(message_content, "info", {
+		id = token,
+		timeout = true, -- Let the notifier handle the timeout
+		title = "LSP Progress",
+	})
 end

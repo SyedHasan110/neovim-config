@@ -4,11 +4,9 @@ return {
 	build = function()
 		require("fs.utils.install")()
 	end,
-	opts = {
-		notify = true,
-		-- add other options
-	},
-	config = function(_, opts)
-		require("fs").setup(opts)
+	config = function(_)
+		require("fs").setup({
+			notify = true,
+		})
 	end,
 }
