@@ -87,6 +87,11 @@ return {
 		-- same as `override` but specifically for overrides by extension
 		-- takes effect when `strict` is true
 		override_by_extension = {
+			["css"] = {
+				icon = "",
+				color = "#7aa2f7",
+				name = "CSS",
+			},
 			["log"] = {
 				icon = "",
 				color = "#81e043",
