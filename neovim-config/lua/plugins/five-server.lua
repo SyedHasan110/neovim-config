@@ -4,7 +4,7 @@ return {
 	build = function()
 		require("fs.utils.install")()
 	end,
-	config = function(_)
+	config = function()
 		require("fs").setup({
 			notify = true,
 		})
