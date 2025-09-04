@@ -2,15 +2,7 @@ return {
 	"folke/tokyonight.nvim",
 	lazy = false,
 	priority = 1000,
-	opts = {
-		style = "storm", -- "storm", "night", "moon"
-		transparent = false,
-		styles = {
-			sidebars = "dark",
-			floats = "dark",
-		},
-	},
-
+	opts = {},
 	config = function()
 		require("tokyonight").setup({
 			on_highlights = function(hl, colors)
@@ -20,6 +12,7 @@ return {
 					bg = colors.bg, -- Match editor background
 				}
 			end,
+			on_colors = function() end,
 			style = "night", -- "storm", "night", "moon"
 			transparent = false,
 			styles = {
@@ -29,6 +22,9 @@ return {
 				variables = {},
 				sidebars = "dark",
 				floats = "dark",
+			},
+			plugins = {
+				all = true,
 			},
 		})
 
