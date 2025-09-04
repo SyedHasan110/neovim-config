@@ -1,81 +1,153 @@
 -- =================================================================
--- Custom LSP Progress Handler
--- NOTE: This requires a notification plugin that provides `Snacks.notifier`.
+-- Fixed LSP Progress Handler - Ensures Final Message Shows
+-- Requires: Snacks.nvim with notifier enabled
 -- =================================================================
+
 local spinners = { "◜ ", "◠ ", "◝ ", "◞ ", "◡ ", "◟ " }
 local progress_cache = {}
 
 vim.lsp.handlers["$/progress"] = function(_, result, ctx)
 	local client = vim.lsp.get_client_by_id(ctx.client_id)
+	if not client then
+		return
+	end
+
 	local token = result.token
 	local progress = result.value
-	local server_name = client and client.name or "LSP Server"
+	local server_name = client.name or "LSP Server"
+
+	if not progress or not progress.kind then
+		return
+	end
 
 	local cache_entry = progress_cache[token]
 
-	-- If a new task begins for a token that had a pending cleanup timer,
-	-- cancel the old timer to prevent it from closing the new notification.
-	if progress.kind == "begin" and cache_entry and cache_entry.cleanup_timer then
-		vim.fn.timer_stop(cache_entry)
-	end
-
-	-- Initialize or reset the cache entry when a task starts.
+	-- Handle begin
 	if progress.kind == "begin" then
 		progress_cache[token] = {
-			spinner_idx = 1, -- Start at the first spinner
-			title = progress.title,
-			cleanup_timer = nil,
+			spinner_idx = 1,
+			title = progress.title or "",
+			message = progress.message or "",
+			percentage = progress.percentage,
+			work_done = 0,
+			total_work = 0,
 		}
 		cache_entry = progress_cache[token]
-	-- A 'report' or 'end' should not happen without a 'begin', but we check to be safe.
+
+		-- Extract work progress from message
+		if progress.message then
+			local done, total = progress.message:match("(%d+)/(%d+)")
+			if done and total then
+				cache_entry.work_done = tonumber(done)
+				cache_entry.total_work = tonumber(total)
+			end
+		end
 	elseif not cache_entry then
 		return
 	end
 
-	-- Update spinner state on 'report'.
+	-- Handle report
 	if progress.kind == "report" then
 		cache_entry.spinner_idx = (cache_entry.spinner_idx % #spinners) + 1
-	end
 
-	local spinner = spinners[cache_entry.spinner_idx] or " "
-	local percentage = progress.percentage
-	local message = progress.message
-	local lsp_title = cache_entry.title
-
-	-- Handle completion state.
-	if progress.kind == "end" then
-		spinner = "✓ "
-		-- For display purposes, show 100% on completion if no percentage is given.
-		if percentage == nil then
-			percentage = 100
+		-- Update work progress from message
+		if progress.message then
+			cache_entry.message = progress.message
+			local done, total = progress.message:match("(%d+)/(%d+)")
+			if done and total then
+				cache_entry.work_done = tonumber(done)
+				cache_entry.total_work = tonumber(total)
+			end
 		end
 
-		-- Schedule the cleanup and store the timer ID so we can cancel it if needed.
-		cache_entry.cleanup_timer = vim.defer_fn(function()
-			if Snacks and Snacks.notifier and Snacks.notifier.hide then
-				Snacks.notifier.hide(token)
-			end
-			progress_cache[token] = nil
-		end, 1800)
+		if progress.percentage then
+			cache_entry.percentage = progress.percentage
+		end
+	elseif progress.kind == "end" then
+		cache_entry.spinner_idx = 1
+		cache_entry.message = progress.message or cache_entry.message
+		cache_entry.percentage = progress.percentage or 100
+
+		-- Ensure work done equals total work on completion
+		if cache_entry.total_work and cache_entry.total_work > 0 then
+			cache_entry.work_done = cache_entry.total_work
+		end
 	end
 
-	-- Safely build message components, only including parts that exist.
+	-- Create consistent notification ID
+	local notification_id = "lsp_progress_" .. tostring(token)
+
+	local spinner = progress.kind == "end" and "✓ " or (spinners[cache_entry.spinner_idx] or " ")
+	local percentage = cache_entry.percentage
+	local message = cache_entry.message
+	local lsp_title = cache_entry.title
+
+	-- Build message components
 	local components = { spinner, "[" .. server_name .. "]" }
+
 	if lsp_title and lsp_title ~= "" then
 		table.insert(components, lsp_title)
 	end
-	if message and message ~= "" then
+
+	-- Show work progress in message if available
+	if cache_entry.total_work and cache_entry.total_work > 0 then
+		table.insert(components, string.format("%d/%d", cache_entry.work_done, cache_entry.total_work))
+	elseif message and message ~= "" then
 		table.insert(components, message)
 	end
-	if percentage then
+
+	if percentage and progress.kind ~= "end" then
 		table.insert(components, string.format("(%.0f%%)", percentage))
 	end
 
 	local message_content = table.concat(components, " ")
 
-	Snacks.notifier.notify(message_content, "info", {
-		id = token,
-		timeout = true, -- Let the notifier handle the timeout
-		title = "LSP Progress",
-	})
+	if not Snacks or not Snacks.notifier then
+		return
+	end
+
+	-- Handle completion with proper cleanup
+	if progress.kind == "end" then
+		-- Show final message immediately
+		Snacks.notifier.notify(message_content, "info", {
+			id = notification_id,
+			timeout = 3000,
+			title = "LSP Progress",
+		})
+
+		-- Schedule cleanup after showing the final message
+		local timer = vim.uv.new_timer()
+		if timer then
+			timer:start(
+				3100,
+				0,
+				vim.schedule_wrap(function()
+					if Snacks and Snacks.notifier and Snacks.notifier.hide then
+						Snacks.notifier.hide(notification_id)
+					end
+					progress_cache[token] = nil
+					if not timer:is_closing() then
+						timer:close()
+					end
+				end)
+			)
+		end
+	else
+		-- Show/update ongoing progress
+		Snacks.notifier.notify(message_content, "info", {
+			id = notification_id,
+			timeout = true,
+			title = "LSP Progress",
+		})
+	end
 end
+
+-- Cleanup function
+local function cleanup()
+	progress_cache = {}
+end
+
+-- Cleanup on exit
+vim.api.nvim_create_autocmd("VimLeavePre", {
+	callback = cleanup,
+})
