@@ -46,7 +46,9 @@ return {
 				--   statusline = {},
 				--   winbar = {},
 				-- },
-				disabled_filetypes = {},
+				disabled_filetypes = {
+					"snacks_dashboard",
+				},
 				ignore_focus = {},
 				always_divide_middle = true,
 				always_show_tabline = true,
