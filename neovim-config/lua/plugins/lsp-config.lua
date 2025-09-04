@@ -86,16 +86,6 @@ return {
 		config = function()
 			vim.lsp.config("*", {
 				settings = {
-					typescript = {
-						inlayHints = {
-							parameterNames = { enabled = "literals" },
-							parameterTypes = { enabled = true },
-							variableTypes = { enabled = true },
-							propertyDeclarationTypes = { enabled = true },
-							functionLikeReturnTypes = { enabled = true },
-							enumMemberValues = { enabled = true },
-						},
-					},
 					["rust-analyzer"] = {
 						inlayHints = {
 							discriminantHints = {
@@ -124,11 +114,6 @@ return {
 					Lua = {
 						format = {
 							enable = true,
-						},
-						workspace = {
-							library = {
-								vim.env.VIMRUNTIME,
-							},
 						},
 						hint = {
 							enable = true,
