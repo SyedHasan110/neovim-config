@@ -29,7 +29,7 @@ return {
 				},
 			},
 			keymap = {
-				preset = "enter",
+				preset = "default",
 			},
 			cmdline = {
 				completion = {
