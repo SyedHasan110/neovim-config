@@ -11,6 +11,23 @@ return {
 					fg = colors.bg,
 					bg = colors.bg, -- Match editor background
 				}
+				hl.DiagnosticUnderlineError = {
+					underdashed = true,
+				}
+				hl.DiagnosticUnderlineWarn = {
+					underdashed = true,
+				}
+				hl.DiagnosticUnderlineInfo = {
+					underdashed = true,
+				}
+				hl.DiagnosticUnderlineHint = {
+					underdashed = true,
+				}
+
+				hl.DiagnosticVirtualTextError = { fg = colors.red1 }
+				hl.DiagnosticVirtualTextWarn = { fg = colors.yellow }
+				hl.DiagnosticVirtualTextInfo = { fg = colors.blue2 }
+				hl.DiagnosticVirtualTextHint = { fg = colors.green }
 			end,
 			on_colors = function() end,
 			style = "night", -- "storm", "night", "moon"
