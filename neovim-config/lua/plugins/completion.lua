@@ -29,7 +29,7 @@ return {
 				},
 			},
 			keymap = {
-				preset = "default",
+				preset = "enter",
 			},
 			cmdline = {
 				completion = {
@@ -45,7 +45,7 @@ return {
 				},
 				enabled = true,
 				keymap = {
-					preset = "enter",
+					preset = "default",
 				},
 			},
 			completion = {

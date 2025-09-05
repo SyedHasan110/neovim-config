@@ -122,11 +122,31 @@ return {
 				},
 			})
 
-			vim.api.nvim_create_autocmd("LspTokenUpdate", {
+			vim.api.nvim_create_autocmd("LspAttach", {
 				callback = function(args)
-					vim.lsp.inlay_hint.enable(true, { bufnr = args.buf })
+					local client = vim.lsp.get_client_by_id(args.data.client_id)
+					if client.name == "rust_analyzer" then
+						vim.defer_fn(function()
+							vim.lsp.inlay_hint.enable(true, { bufnr = args.buf })
+						end, 3000)
+					else
+						vim.defer_fn(function()
+							vim.lsp.inlay_hint.enable(true, { bufnr = args.buf })
+						end, 500)
+					end
 				end,
 			})
+
+			-- This works for Lua files
+			vim.api.nvim_create_autocmd("CursorHold", {
+				pattern = { "*.lua" },
+				callback = function()
+					local bufnr = vim.api.nvim_get_current_buf()
+					vim.diagnostic.reset()
+					vim.diagnostic.enable(true, { bufnr = bufnr })
+				end,
+			})
+
 			require("lspconfig").vtsls.setup({})
 		end,
 	},
