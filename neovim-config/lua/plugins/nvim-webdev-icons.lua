@@ -83,6 +83,10 @@ return {
 				icon = "",
 				name = "Config",
 			},
+			[".clang-format"] = {
+				icon = "",
+				name = "clang-format",
+			},
 		},
 		-- same as `override` but specifically for overrides by extension
 		-- takes effect when `strict` is true

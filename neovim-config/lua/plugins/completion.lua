@@ -45,7 +45,7 @@ return {
 				},
 				enabled = true,
 				keymap = {
-					preset = "default",
+					preset = "enter",
 				},
 			},
 			completion = {
@@ -66,7 +66,7 @@ return {
 				},
 				list = {
 					selection = {
-						preselect = false,
+						preselect = true,
 						auto_insert = false,
 					},
 				},
