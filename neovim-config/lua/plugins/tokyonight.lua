@@ -23,13 +23,13 @@ return {
 				hl.DiagnosticUnderlineHint = {
 					underdashed = true,
 				}
-
-				hl.DiagnosticVirtualTextError = { fg = colors.red1 }
-				hl.DiagnosticVirtualTextWarn = { fg = colors.yellow }
-				hl.DiagnosticVirtualTextInfo = { fg = colors.blue2 }
-				hl.DiagnosticVirtualTextHint = { fg = colors.green }
 			end,
-			on_colors = function() end,
+			on_colors = function(c)
+				c.error = c.red
+				c.warning = c.yellow
+				c.info = c.blue
+				c.hint = c.green
+			end,
 			style = "night", -- "storm", "night", "moon"
 			transparent = false,
 			styles = {

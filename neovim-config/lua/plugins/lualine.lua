@@ -4,6 +4,7 @@ return {
 		{ "nvim-tree/nvim-web-devicons" },
 	},
 	config = function()
+		local colors = require("tokyonight.colors.night")
 		local function lsp_component()
 			-- Custom LSP component for lualine
 			-- Get all active LSP clients for the current buffer
@@ -39,7 +40,7 @@ return {
 		require("lualine").setup({
 			options = {
 				icons_enabled = true,
-				theme = "auto",
+				theme = "tokyonight",
 				component_separators = "",
 				section_separators = { left = "", right = "" },
 				-- disabled_filetypes = {
@@ -64,7 +65,12 @@ return {
 				lualine_a = { { "mode", icon = "" } },
 				lualine_b = { { "branch", icon = "" }, { "diff", icon = "" } },
 				lualine_c = { { lsp_component } },
-				lualine_x = { "diagnostics", "filesize", "encoding", "filetype" },
+				lualine_x = {
+					"diagnostics",
+					"filesize",
+					"encoding",
+					"filetype",
+				},
 				lualine_y = { "progress" },
 				lualine_z = { { "location", icon = "" } },
 			},
@@ -72,7 +78,12 @@ return {
 				lualine_a = { { "mode", icon = "" } },
 				lualine_b = { { "branch", icon = "" }, { "diff", icon = "" } },
 				lualine_c = { { lsp_component } },
-				lualine_x = { "diagnostics", "filesize", "encoding", "filetype" },
+				lualine_x = {
+					"diagnostics",
+					"filesize",
+					"encoding",
+					"filetype",
+				},
 				lualine_y = { "progress" },
 				lualine_z = { { "location", icon = "" } },
 			},
