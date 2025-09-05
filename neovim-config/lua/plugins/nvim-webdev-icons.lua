@@ -98,12 +98,10 @@ return {
 			},
 			["log"] = {
 				icon = "",
-				color = "#81e043",
 				name = "Log",
 			},
 			["toml"] = {
 				icon = "",
-				color = "#f57047",
 				name = "Toml",
 			},
 			["lock"] = {
