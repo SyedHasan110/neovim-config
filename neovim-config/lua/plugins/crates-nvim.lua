@@ -14,12 +14,13 @@ return {
 			completion = {
 				insert_closing_quote = true,
 				crates = {
+					min_chars = 1,
 					enabled = true, -- disabled by default
 					max_results = 20, -- The maximum number of search results to display
 				},
 			},
-			max_parallel_requests = 80,
-			autoupdate_throttle = 0,
+			max_parallel_requests = 10,
+			autoupdate_throttle = 60,
 			text = {
 				searching = "   Searching",
 				loading = "   Loading",
