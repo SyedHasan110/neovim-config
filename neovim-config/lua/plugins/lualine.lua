@@ -4,7 +4,6 @@ return {
 		{ "nvim-tree/nvim-web-devicons" },
 	},
 	config = function()
-		local colors = require("tokyonight.colors.night")
 		local function lsp_component()
 			-- Custom LSP component for lualine
 			-- Get all active LSP clients for the current buffer

@@ -126,6 +126,13 @@ return {
 					vim.lsp.inlay_hint.enable(true, { bufnr = args.buf })
 				end,
 			})
+
+			vim.api.nvim_create_autocmd("CursorHold", {
+				callback = function()
+					vim.diagnostic.reset()
+					vim.diagnostic.show()
+				end,
+			})
 			require("lspconfig").vtsls.setup({})
 		end,
 	},

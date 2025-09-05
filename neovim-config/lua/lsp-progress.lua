@@ -14,7 +14,7 @@ local function show_notification(content, id, is_end)
 	end
 	Snacks.notifier.notify(content, "info", {
 		id = id,
-		timeout = is_end and 2000 or true,
+		timeout = is_end and 1800 or true,
 		title = "LSP Progress",
 	})
 end
