@@ -50,7 +50,6 @@ return {
 			},
 			completion = {
 				trigger = {
-					show_on_backspace = true,
 					show_on_insert_on_trigger_character = false,
 				},
 				menu = {
@@ -71,7 +70,7 @@ return {
 				list = {
 					selection = {
 						preselect = true,
-						auto_insert = true,
+						auto_insert = false,
 					},
 				},
 				documentation = {

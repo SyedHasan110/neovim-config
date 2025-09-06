@@ -45,6 +45,7 @@ return {
 				"html-lsp",
 				"emmet-language-server",
 				"biome",
+				"deno",
 			}
 			mr.refresh(function()
 				for _, tool in ipairs(packages) do
@@ -75,7 +76,6 @@ return {
 					"rust_analyzer",
 					"taplo",
 					"clangd",
-					"vtsls",
 					"cssls",
 				},
 			})
@@ -85,7 +85,7 @@ return {
 		"neovim/nvim-lspconfig",
 		dependencies = { "saghen/blink.cmp" },
 		config = function()
-			vim.lsp.config("*", {
+			vim.lsp.config("rust_analyzer", {
 				settings = {
 					["rust-analyzer"] = {
 						inlayHints = {
@@ -112,6 +112,11 @@ return {
 							},
 						},
 					},
+				},
+			})
+
+			vim.lsp.config("lua_ls", {
+				settings = {
 					Lua = {
 						format = {
 							enable = true,
@@ -148,8 +153,10 @@ return {
 				end,
 			})
 
-			local lspconfig = require("lspconfig")
-			lspconfig.vtsls.setup({})
+			local nvim_lsp = require("lspconfig")
+			nvim_lsp.denols.setup({
+				root_dir = nvim_lsp.util.root_pattern("deno.json", "deno.jsonc"),
+			})
 		end,
 	},
 }
