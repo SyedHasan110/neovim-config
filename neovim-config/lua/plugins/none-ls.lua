@@ -1,6 +1,7 @@
 return {
 	"nvimtools/none-ls.nvim",
 	config = function()
-		require("null-ls").setup({})
+		local none_ls = require("null-ls")
+		none_ls.setup({})
 	end,
 }

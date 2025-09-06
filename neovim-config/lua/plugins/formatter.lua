@@ -8,6 +8,17 @@ return {
 				async = true,
 			},
 			formatters_by_ft = {
+				javascript = { "biome" },
+				typescript = { "biome" },
+				javascriptreact = { "biome" },
+				typescriptreact = { "biome" },
+				json = { "biome" },
+				jsonc = { "biome" },
+				astro = { "biome" },
+				vue = { "biome" },
+				svelte = { "biome" },
+				html = { "biome" },
+				css = { "biome" },
 				cpp = { "clang-format" },
 				lua = { "stylua" },
 				-- Conform will run multiple formatters sequentially
@@ -16,6 +27,13 @@ return {
 				rust = { "rustfmt" },
 				-- Conform will run the first available formatter
 				-- javascript = { "prettierd", "prettier", stop_after_first = true },
+			},
+			formatters = {
+				biome = {
+					command = "biome",
+					args = { "format", "--stdin-file-path", "$FILENAME", "--write" },
+					stdin = true,
+				},
 			},
 		})
 	end,

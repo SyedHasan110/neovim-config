@@ -40,13 +40,14 @@ return {
 				},
 			})
 			local mr = require("mason-registry")
-			local formatters = {
+			local packages = {
 				"stylua",
 				"html-lsp",
 				"emmet-language-server",
+				"biome",
 			}
 			mr.refresh(function()
-				for _, tool in ipairs(formatters) do
+				for _, tool in ipairs(packages) do
 					local pkg = mr.get_package(tool)
 					if not pkg:is_installed() then
 						pkg:install()
@@ -132,7 +133,7 @@ return {
 					else
 						vim.defer_fn(function()
 							vim.lsp.inlay_hint.enable(true, { bufnr = args.buf })
-						end, 500)
+						end, 1000)
 					end
 				end,
 			})
@@ -147,7 +148,8 @@ return {
 				end,
 			})
 
-			require("lspconfig").vtsls.setup({})
+			local lspconfig = require("lspconfig")
+			lspconfig.vtsls.setup({})
 		end,
 	},
 }
