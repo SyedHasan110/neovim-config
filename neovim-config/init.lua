@@ -9,6 +9,10 @@ vim.diagnostic.config({
 	signs = false,
 })
 
+vim.g.markdown_fenced_languages = {
+	"ts=typescript",
+}
+
 require("keymap")
 require("general-settings")
 require("lsp-progress")
