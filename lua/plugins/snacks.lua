@@ -9,7 +9,7 @@ return {
 			"<a-t>",
 			mode = { "n", "t", "v" },
 			function()
-				Snacks.terminal.toggle("bash", {
+				Snacks.terminal.toggle("/usr/bin/bash", {
 					win = {
 						border = "double",
 						title = "  Terminal ",
@@ -213,6 +213,7 @@ return {
 					undo = {},
 				},
 			},
+
 			notifier = {
 				enabled = true,
 				icons = {
@@ -243,8 +244,13 @@ return {
 				debounce = 30,
 			},
 			styles = {
+				notifier = {
+					fixbuf = true,
+					focusable = false,
+				},
 				notification = {
-					relative = "editor",
+					fixbuf = true,
+					focusable = false,
 					border = "double",
 					wo = {
 						winblend = 0,
