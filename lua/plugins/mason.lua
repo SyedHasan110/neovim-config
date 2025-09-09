@@ -84,6 +84,10 @@ return {
 							vim.defer_fn(function()
 								vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
 							end, 3000)
+						else
+							vim.defer_fn(function()
+								vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
+							end, 1000)
 						end
 					end
 				end,
