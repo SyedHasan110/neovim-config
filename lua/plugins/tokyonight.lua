@@ -14,12 +14,15 @@ return {
 				hl.DiagnosticUnderlineError = {
 					underdashed = true,
 				}
+
 				hl.DiagnosticUnderlineWarn = {
 					underdashed = true,
 				}
+
 				hl.DiagnosticUnderlineInfo = {
 					underdashed = true,
 				}
+
 				hl.DiagnosticUnderlineHint = {
 					underdashed = true,
 				}
