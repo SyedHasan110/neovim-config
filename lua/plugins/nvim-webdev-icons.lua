@@ -4,6 +4,17 @@ return {
 	lazy = false, -- Load immediately on startup
 	priority = 2000, -- High priority
 	config = function()
+		vim.api.nvim_create_autocmd("FileType", {
+			pattern = { "TelescopePrompt", "snacks_dashboard" },
+			callback = function()
+				if vim.bo.filetype == "TelescopePrompt" then
+					vim.bo.swapfile = false
+					vim.bo.modifiable = true
+					-- Clear buffer name so extension doesn't interfere
+					vim.api.nvim_buf_set_name(0, "TelescopePrompt")
+				end
+			end,
+		})
 		require("nvim-web-devicons").setup({
 			-- your personal icons can go here (to override)
 			-- you can specify color or cterm_color instead of specifying both of them
@@ -94,6 +105,14 @@ return {
 				["bash"] = {
 					icon = "",
 					name = "Bash",
+				},
+				["TelescopePrompt"] = {
+					icon = "",
+					name = "Prompt",
+				},
+				["exclude"] = {
+					icon = "",
+					name = "Exclude",
 				},
 			},
 			-- same as `override` but specifically for overrides by extension
