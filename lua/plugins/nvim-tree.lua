@@ -11,7 +11,7 @@ return {
 		vim.opt.termguicolors = true
 		require("nvim-tree").setup({
 			git = {
-				ignore = false,
+				ignore = true,
 			},
 			actions = {
 				use_system_clipboard = true,
