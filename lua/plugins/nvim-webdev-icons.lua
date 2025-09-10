@@ -5,7 +5,7 @@ return {
 	priority = 2000, -- High priority
 	config = function()
 		vim.api.nvim_create_autocmd("FileType", {
-			pattern = { "TelescopePrompt", "NvimTree" },
+			pattern = { "TelescopePrompt", "NvimTree", "snacks_notif" },
 			callback = function(args)
 				local bufnr = args.buf
 				if vim.bo.filetype == "TelescopePrompt" then
@@ -118,6 +118,10 @@ return {
 				["exclude"] = {
 					icon = "",
 					name = "Exclude",
+				},
+				["SnacksNotif"] = {
+					icon = "",
+					name = "SnacksNotif",
 				},
 			},
 			-- same as `override` but specifically for overrides by extension

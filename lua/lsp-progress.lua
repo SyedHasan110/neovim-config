@@ -7,16 +7,6 @@ local spinners = { "◜ ", "◠ ", "◝ ", "◞ ", "◡ ", "◟ " }
 local progress_cache = {}
 
 local function show_notification(content, id, is_end)
-	-- Fallback if Snacks isn't available
-	if not pcall(function()
-		return Snacks.notifier
-	end) or not Snacks or not Snacks.notifier then
-		vim.notify(content, vim.log.levels.INFO, {
-			title = "LSP Progress",
-		})
-		return
-	end
-
 	Snacks.notifier.notify(content, "info", {
 		id = id,
 		timeout = is_end and 1800 or true,

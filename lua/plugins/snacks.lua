@@ -246,12 +246,18 @@ return {
 			styles = {
 				notifier = {
 					fixbuf = true,
-					focusable = false,
+					file = "SnackNotif",
+					bo = {
+						buftype = "nowrite",
+					},
 				},
 				notification = {
+					file = "SnacksNotif",
 					fixbuf = true,
-					focusable = false,
 					border = "double",
+					bo = {
+						buftype = "nowrite",
+					},
 					wo = {
 						winblend = 0,
 						wrap = true,
