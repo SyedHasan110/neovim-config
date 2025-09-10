@@ -5,13 +5,18 @@ return {
 	priority = 2000, -- High priority
 	config = function()
 		vim.api.nvim_create_autocmd("FileType", {
-			pattern = { "TelescopePrompt", "snacks_dashboard" },
-			callback = function()
+			pattern = { "TelescopePrompt", "NvimTree" },
+			callback = function(args)
+				local bufnr = args.buf
 				if vim.bo.filetype == "TelescopePrompt" then
 					vim.bo.swapfile = false
 					vim.bo.modifiable = true
 					-- Clear buffer name so extension doesn't interfere
-					vim.api.nvim_buf_set_name(0, "TelescopePrompt")
+					vim.api.nvim_buf_set_name(bufnr, "TelescopePrompt")
+				else
+					if vim.bo.filetype == "NvimTree" then
+						vim.api.nvim_buf_set_name(bufnr, "NvimTree")
+					end
 				end
 			end,
 		})
@@ -90,7 +95,7 @@ return {
 					icon = "",
 					name = "database-wal",
 				},
-				["NvimTree_1"] = {
+				["NvimTree"] = {
 					icon = "",
 					name = "NvimTree",
 				},
