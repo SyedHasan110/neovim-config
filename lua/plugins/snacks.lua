@@ -248,7 +248,7 @@ return {
 					fixbuf = true,
 					file = "SnackNotif",
 					bo = {
-						buftype = "nowrite",
+						buftype = "nofile",
 					},
 				},
 				notification = {
@@ -256,7 +256,7 @@ return {
 					fixbuf = true,
 					border = "double",
 					bo = {
-						buftype = "nowrite",
+						buftype = "nofile",
 					},
 					wo = {
 						winblend = 0,
