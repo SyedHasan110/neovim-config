@@ -1,5 +1,5 @@
 {
 	"$schema": "https://raw.githubusercontent.com/LuaLS/vscode-lua/master/setting/schema.json",
 	"diagnostics.globals": ["*"],
-	"diagnostics.workspaceDelay": 2000
+	"diagnostics.workspaceDelay": 1000
 }
