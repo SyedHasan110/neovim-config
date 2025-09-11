@@ -39,7 +39,6 @@ return {
 					},
 				},
 			})
-			local mr = require("mason-registry")
 			local lsp_pkg = {
 				"html-lsp",
 				"emmet-language-server",
@@ -56,19 +55,28 @@ return {
 				"biome",
 				"stylua",
 			}
-
 			local mpkgs = {}
 			table.move(lsp_pkg, 1, #lsp_pkg, 1, mpkgs)
 			table.move(fmt_pkg, 1, #fmt_pkg, #mpkgs + 1, mpkgs)
+
+			local mr = require("mason-registry")
 			mr.refresh(function()
-				for _, pkgs in ipairs(mpkgs) do
-					local pkg = mr.get_package(pkgs)
-					if not pkg.is_installed(pkg) then
-						pkg.install(pkg)
+				mr.update()
+				for _, pkg_name in ipairs(mpkgs) do
+					local pkg = mr.get_package(pkg_name)
+					if pkg then
+						if not pkg:is_installed() then
+							pkg:install()
+						else
+							if pkg.get_installed_version(pkg) ~= pkg.get_latest_version(pkg) then
+								pkg.update(pkg, pkg.spec, pkg.registry)
+							end
+						end
+					else
+						print("Package not found: " .. pkg_name)
 					end
 				end
 			end)
-
 			vim.lsp.enable(lsp_pkg)
 
 			vim.api.nvim_create_autocmd("LspAttach", {
