@@ -116,10 +116,6 @@ return {
 					icon = "",
 					name = "Exclude",
 				},
-				["SnacksNotif"] = {
-					icon = "",
-					name = "SnacksNotif",
-				},
 			},
 			-- same as `override` but specifically for overrides by extension
 			-- takes effect when `strict` is true
