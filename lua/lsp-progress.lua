@@ -10,7 +10,7 @@ local function show_notification(content, id, is_end)
 	Snacks.notifier.notify(content, "info", {
 		icon = "",
 		id = id,
-		timeout = is_end and 1800 or true,
+		timeout = is_end and 1800 or 0, -- Changed to 0 for immediate display
 		title = "LSP Progress",
 	})
 end
@@ -94,6 +94,23 @@ vim.lsp.handlers["$/progress"] = function(_, result, ctx)
 				end
 			end
 		end
+
+		-- Show initial notification immediately
+		local notification_id = "lsp_progress_" .. tostring(token)
+		local spinner = spinners[1]
+		local components = { spinner, "[" .. server_name .. "]" }
+
+		if cache_entry.title and cache_entry.title ~= "" then
+			table.insert(components, cache_entry.title)
+		end
+
+		if cache_entry.message and cache_entry.message ~= "" then
+			table.insert(components, cache_entry.message)
+		end
+
+		table.insert(components, "(0%)")
+		local message_content = table.concat(components, " ")
+		show_notification(message_content, notification_id, false)
 	elseif not cache_entry then
 		return
 	end
