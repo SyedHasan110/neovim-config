@@ -248,6 +248,9 @@ return {
 					icon = "󰈹",
 					name = "JSONLZ4",
 				},
+				["snacks_notif"] = {
+					icon = ">",
+				},
 			},
 			-- same as `override` but specifically for operating system
 			-- takes effect when `strict` is true

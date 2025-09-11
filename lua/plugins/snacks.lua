@@ -248,6 +248,9 @@ return {
 					wo = {
 						winfixbuf = true,
 					},
+					bo = {
+						bufhidden = "delete",
+					},
 					fixbuf = true,
 				},
 				notification = {
@@ -257,6 +260,9 @@ return {
 						winfixbuf = true,
 						winblend = 0,
 						wrap = true,
+					},
+					bo = {
+						bufhidden = "delete",
 					},
 				},
 			},
