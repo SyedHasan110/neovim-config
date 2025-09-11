@@ -18,7 +18,7 @@ return {
 				-- 'hover.providers.highlight',
 			},
 			preview_opts = {
-				width = 80,
+				width = 70,
 				height = 15,
 				border = "double",
 			},
