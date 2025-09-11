@@ -40,7 +40,6 @@ return {
 				},
 			})
 			local mr = require("mason-registry")
-			local mc = require("mason.api.command")
 			local lsp_pkg = {
 				"html-lsp",
 				"emmet-language-server",
