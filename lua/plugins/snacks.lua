@@ -246,14 +246,14 @@ return {
 			styles = {
 				notifier = {
 					fixbuf = true,
-					file = "SnackNotif",
+					file = "SnacksNotif",
 					bo = {
 						buftype = "nofile",
 					},
 				},
 				notification = {
-					file = "SnacksNotif",
 					fixbuf = true,
+					file = "SnacksNotif",
 					border = "double",
 					bo = {
 						buftype = "nofile",

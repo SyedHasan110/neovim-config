@@ -5,13 +5,10 @@ return {
 	priority = 2000, -- High priority
 	config = function()
 		vim.api.nvim_create_autocmd("FileType", {
-			pattern = { "TelescopePrompt", "NvimTree", "snacks_notif" },
+			pattern = { "TelescopePrompt", "NvimTree" },
 			callback = function(args)
 				local bufnr = args.buf
 				if vim.bo.filetype == "TelescopePrompt" then
-					vim.bo.swapfile = false
-					vim.bo.modifiable = true
-					-- Clear buffer name so extension doesn't interfere
 					vim.api.nvim_buf_set_name(bufnr, "TelescopePrompt")
 				else
 					if vim.bo.filetype == "NvimTree" then
