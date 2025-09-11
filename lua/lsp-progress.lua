@@ -8,6 +8,7 @@ local progress_cache = {}
 
 local function show_notification(content, id, is_end)
 	Snacks.notifier.notify(content, "info", {
+		icon = "",
 		id = id,
 		timeout = is_end and 1800 or true,
 		title = "LSP Progress",
