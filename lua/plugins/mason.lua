@@ -61,22 +61,18 @@ return {
 
 			local mr = require("mason-registry")
 			mr.refresh(function()
-				mr.update()
 				for _, pkg_name in ipairs(mpkgs) do
 					local pkg = mr.get_package(pkg_name)
-					if pkg then
-						if not pkg:is_installed() then
-							pkg:install()
-						else
-							if pkg.get_installed_version(pkg) ~= pkg.get_latest_version(pkg) then
-								pkg.update(pkg, pkg.spec, pkg.registry)
-							end
-						end
+					if pkg and not pkg.is_installed(pkg) then
+						pkg:install()
 					else
-						print("Package not found: " .. pkg_name)
+						if pkg.get_installed_version(pkg) ~= pkg.get_latest_version(pkg) then
+							pkg:update(pkg.spec, pkg.registry)
+						end
 					end
 				end
 			end)
+
 			vim.lsp.enable(lsp_pkg)
 
 			vim.api.nvim_create_autocmd("LspAttach", {
