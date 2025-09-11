@@ -18,8 +18,8 @@ return {
 				-- 'hover.providers.highlight',
 			},
 			preview_opts = {
-				width = 60,
-				height = 8,
+				width = 80,
+				height = 15,
 				border = "double",
 			},
 			-- Whether the contents of a currently open hover window should be moved
