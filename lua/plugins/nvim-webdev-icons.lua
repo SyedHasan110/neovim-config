@@ -5,7 +5,7 @@ return {
 	priority = 2000, -- High priority
 	config = function()
 		vim.api.nvim_create_autocmd("FileType", {
-			pattern = { "TelescopePrompt", "NvimTree", "snacks_notif" },
+			pattern = { "TelescopePrompt", "NvimTree", "snacks_notif", "markdown" },
 			callback = function(args)
 				local bufnr = args.buf
 				if vim.bo.filetype == "TelescopePrompt" then
@@ -23,6 +23,10 @@ return {
 									name = "snacks_notif",
 								},
 							})
+						else
+							if vim.bo.filetype == "markdown" and vim.api.nvim_buf_get_name(bufnr) == "" then
+								vim.api.nvim_buf_set_name(bufnr, "markdown")
+							end
 						end
 					end
 				end
