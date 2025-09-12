@@ -5,7 +5,7 @@ return {
 	priority = 2000, -- High priority
 	config = function()
 		vim.api.nvim_create_autocmd("FileType", {
-			pattern = { "TelescopePrompt", "NvimTree", "snacks_notif", "markdown" },
+			pattern = { "TelescopePrompt", "NvimTree" },
 			callback = function(args)
 				local bufnr = args.buf
 				if vim.bo.filetype == "TelescopePrompt" then
@@ -13,21 +13,6 @@ return {
 				else
 					if vim.bo.filetype == "NvimTree" then
 						vim.api.nvim_buf_set_name(bufnr, "NvimTree")
-					else
-						if vim.bo.filetype == "snacks_notif" then
-							vim.api.nvim_buf_set_name(bufnr, "snacks_notif_" .. bufnr)
-							vim.bo.filetype = "snacks_notif_" .. bufnr
-							require("nvim-web-devicons").set_icon({
-								["snacks_notif_" .. vim.bo.filetype:match("%d+")] = {
-									icon = "",
-									name = "snacks_notif",
-								},
-							})
-						else
-							if vim.bo.filetype == "markdown" and vim.api.nvim_buf_get_name(bufnr) == "" then
-								vim.api.nvim_buf_set_name(bufnr, "markdown")
-							end
-						end
 					end
 				end
 			end,
