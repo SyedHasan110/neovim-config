@@ -5,11 +5,11 @@ return {
 	priority = 2000, -- High priority
 	config = function()
 		vim.api.nvim_create_autocmd("FileType", {
-			pattern = { "TelescopePrompt", "NvimTree" },
+			pattern = { "snacks_picker_input", "NvimTree" },
 			callback = function(args)
 				local bufnr = args.buf
-				if vim.bo.filetype == "TelescopePrompt" then
-					vim.api.nvim_buf_set_name(bufnr, "TelescopePrompt")
+				if vim.bo.filetype == "snacks_picker_input" then
+					vim.api.nvim_buf_set_name(bufnr, "snacks_picker_input")
 				else
 					if vim.bo.filetype == "NvimTree" then
 						vim.api.nvim_buf_set_name(bufnr, "NvimTree")
@@ -108,7 +108,7 @@ return {
 					icon = "",
 					name = "Bash",
 				},
-				["TelescopePrompt"] = {
+				["snacks_picker_input"] = {
 					icon = "",
 					name = "Prompt",
 				},
