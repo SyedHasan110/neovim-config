@@ -13,4 +13,4 @@ My Personal neovim config with great customization.
 
 ## Steps to install
 
-Copy lua, .luarc.json and init.lua to "$HOME/.config/nvim".
+Copy <code>lua</code>, <code>.luarc.json</code> and <code>init.lua</code> to <code>"$HOME/.config/nvim"</code>
