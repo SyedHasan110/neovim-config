@@ -9,7 +9,12 @@ return {
 			light_style = "day",
 			cache = true,
 			day_brightness = 0.3,
-			styles = {},
+			styles = {
+				comments = { italic = false },
+				keywords = { italic = false },
+				functions = {},
+				variables = {},
+			},
 			plugins = {
 				mason = true,
 				lazy = true,
@@ -25,6 +30,7 @@ return {
 				colors.warning = colors.yellow
 				colors.info = colors.blue
 				colors.hint = colors.green1
+				colors.bg_visual = colors.bg_highlight
 			end,
 			on_highlights = function(highlights, colors)
 				highlights.NvimTreeWinSeparator = {
