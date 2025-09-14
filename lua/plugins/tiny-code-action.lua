@@ -4,16 +4,12 @@ return {
 	dependencies = {
 		{ "nvim-lua/plenary.nvim" },
 		-- -- optional picker via telescope
-		-- { "nvim-telescope/telescope.nvim" },
-		-- .. or via snacks
-		{
-			"folke/snacks.nvim",
-			opts = {},
-		},
+		{ "nvim-telescope/telescope.nvim" },
 	},
 	event = "LspAttach",
 	config = function()
 		require("tiny-code-action").setup({
+			theme = "catppuccin",
 			backend = "delta",
 			signs = {
 				quickfix = { "", { link = "DiagnosticWarning" } },

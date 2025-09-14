@@ -39,10 +39,6 @@ local function set_visual_indent_colors()
 	})
 end
 
-vim.api.nvim_set_hl(0, "Visual", {
-	bg = "#313244",
-})
-
 -- Set up autocommands for visual mode
 vim.api.nvim_create_autocmd("ModeChanged", {
 	pattern = "*:v*",
