@@ -30,7 +30,6 @@ return {
 				colors.warning = colors.yellow
 				colors.info = colors.blue
 				colors.hint = colors.green1
-				colors.bg_visual = colors.bg_highlight
 			end,
 			on_highlights = function(highlights, colors)
 				highlights.NvimTreeWinSeparator = {
