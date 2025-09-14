@@ -9,6 +9,8 @@ My Personal neovim config with great customization.
 
 <img src="./images/img_3.png">
 
+<img src="./images/img_4.png">
+
 ## Steps to install
 
 Copy <code>lua</code>, <code>.luarc.json</code> and <code>init.lua</code> to <code>"$HOME/.config/nvim"</code>
