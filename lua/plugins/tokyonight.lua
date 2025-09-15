@@ -51,6 +51,10 @@ return {
 
 				highlights["@lsp.type.unresolvedReference"].undercurl = nil
 				highlights["@lsp.type.unresolvedReference"].underdashed = true
+
+				highlights["@lsp.typemod.builtinAttribute.attribute.rust"] = {
+					fg = colors.teal,
+				}
 			end,
 		})
 		vim.cmd([[colorscheme tokyonight]])
