@@ -9,7 +9,6 @@ return {
 	event = "LspAttach",
 	config = function()
 		require("tiny-code-action").setup({
-			theme = "catppuccin",
 			backend = "delta",
 			signs = {
 				quickfix = { "", { link = "DiagnosticWarning" } },

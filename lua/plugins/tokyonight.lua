@@ -16,9 +16,7 @@ return {
 				variables = {},
 			},
 			plugins = {
-				mason = true,
-				lazy = true,
-				snacks = true,
+				all = true,
 				auto = true,
 			},
 			transparent = false,
@@ -36,25 +34,23 @@ return {
 					bg = colors.bg,
 					fg = colors.bg,
 				}
-				highlights.DiagnosticUnderlineError = {
-					underdashed = true,
-				}
-
-				highlights.DiagnosticUnderlineWarn = {
-					underdashed = true,
-				}
-
-				highlights.DiagnosticUnderlineInfo = {
-					underdashed = true,
-				}
-				highlights.DiagnosticUnderlineHint = {
-					underdashed = true,
-				}
 				highlights.NvimTreeModifiedIcon = {
-					fg = colors.yellow,
-					link = nil,
-					global_link = nil,
+					fg = colors.warning,
 				}
+				highlights.DiagnosticUnderlineError.undercurl = nil
+				highlights.DiagnosticUnderlineError.underdashed = true
+
+				highlights.DiagnosticUnderlineWarn.undercurl = nil
+				highlights.DiagnosticUnderlineWarn.underdashed = true
+
+				highlights.DiagnosticUnderlineInfo.undercurl = nil
+				highlights.DiagnosticUnderlineInfo.underdashed = true
+
+				highlights.DiagnosticUnderlineHint.undercurl = nil
+				highlights.DiagnosticUnderlineHint.underdashed = true
+
+				highlights["@lsp.type.unresolvedReference"].undercurl = nil
+				highlights["@lsp.type.unresolvedReference"].underdashed = true
 			end,
 		})
 		vim.cmd([[colorscheme tokyonight]])
