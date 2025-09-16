@@ -59,7 +59,6 @@ return {
 		table.move(fmt_pkg, 1, #fmt_pkg, #mpkgs + 1, mpkgs)
 
 		local mr = require("mason-registry")
-		local mn = require("mason-core.notify")
 		mr.refresh(function()
 			for _, pkg_name in ipairs(mpkgs) do
 				local pkg = mr.get_package(pkg_name)
