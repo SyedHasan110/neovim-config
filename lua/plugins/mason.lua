@@ -66,13 +66,13 @@ return {
 				if not pkg:is_installed() then
 					pkg:install({}, function(success, _)
 						if success then
-							vim.schedule(function()
+							vim.defer_fn(function()
 								local instance = require("mason.ui.instance")
 								-- Only notify if Mason UI is NOT open
-								if not instance.window.is_open() then
-									mn(pkg_name .. " was successfully installed.")
+								if instance.window.is_open() == false then
+									return
 								end
-							end)
+							end, 50)
 						end
 					end)
 				end
