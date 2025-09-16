@@ -17,6 +17,7 @@ return {
 				signature = {
 					enabled = true,
 					trigger = {
+						show_on_keyword = true,
 						enabled = true,
 						show_on_insert = true,
 						show_on_trigger_character = true,

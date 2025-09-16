@@ -36,6 +36,8 @@ return {
 				}
 				highlights.NvimTreeModifiedIcon = {
 					fg = colors.warning,
+					link = nil,
+					global_link = nil,
 				}
 				highlights.DiagnosticUnderlineError.undercurl = nil
 				highlights.DiagnosticUnderlineError.underdashed = true
@@ -53,7 +55,11 @@ return {
 				highlights["@lsp.type.unresolvedReference"].underdashed = true
 
 				highlights["@lsp.typemod.builtinAttribute.attribute.rust"] = {
-					fg = colors.teal,
+					fg = colors.green2,
+				}
+
+				highlights["@lsp.typemod.macro.library.rust"] = {
+					fg = colors.yellow,
 				}
 			end,
 		})

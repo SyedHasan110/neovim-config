@@ -71,31 +71,9 @@ return {
 					-- Check if package exists in registry
 					if registry.has_package(package_name) then
 						local pkg = registry.get_package(package_name)
-
-						if not pkg:is_installed() then
-							vim.notify("Installing " .. package_name .. "...", vim.log.levels.INFO, {
-								title = "Mason Installer",
-							})
-
-							-- Install the package
-							local install_handle = pkg:install()
-
-							-- Listen for installation events
-							install_handle:on("closed", function()
-								if pkg:is_installed() then
-									vim.notify(
-										"✓  " .. package_name .. " was installed successfully!",
-										vim.log.levels.INFO,
-										{
-											title = "Mason Installer",
-										}
-									)
-								else
-									vim.notify("✗  Failed to install " .. package_name, vim.log.levels.ERROR, {
-										title = "Mason Installer",
-									})
-								end
-							end)
+						if pkg.is_installed(pkg) == false then
+							pkg:install()
+						else
 						end
 					end
 				end
