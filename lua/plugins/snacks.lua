@@ -245,24 +245,14 @@ return {
 			},
 			styles = {
 				notifier = {
-					wo = {
-						winfixbuf = true,
-					},
-					bo = {
-						bufhidden = "delete",
-					},
 					fixbuf = true,
 				},
 				notification = {
 					fixbuf = true,
 					border = "double",
 					wo = {
-						winfixbuf = true,
 						winblend = 0,
 						wrap = true,
-					},
-					bo = {
-						bufhidden = "delete",
 					},
 				},
 			},
