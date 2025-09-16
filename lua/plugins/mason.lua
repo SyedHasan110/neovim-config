@@ -72,7 +72,7 @@ return {
 								if instance.window.is_open() == false then
 									return
 								end
-							end, 50)
+							end, 20)
 						end
 					end)
 				end
