@@ -77,7 +77,6 @@ return {
 				end
 			end
 		end)
-
 		vim.lsp.enable(lsp_pkg)
 
 		vim.api.nvim_create_autocmd("LspAttach", {
