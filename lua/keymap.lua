@@ -64,7 +64,3 @@ vim.keymap.set("n", "<leader>fs", function()
 		fs_process.start()
 	end
 end, { desc = "Toggle Five Server" })
-
-vim.keymap.set({ "n", "x" }, "<leader>ca", function()
-	require("tiny-code-action").code_action({})
-end, { noremap = true, silent = true })
