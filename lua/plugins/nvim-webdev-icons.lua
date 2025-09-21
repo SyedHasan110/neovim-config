@@ -4,19 +4,6 @@ return {
 	lazy = false, -- Load immediately on startup
 	priority = 2000, -- High priority
 	config = function()
-		vim.api.nvim_create_autocmd("FileType", {
-			pattern = { "snacks_picker_input", "NvimTree" },
-			callback = function(args)
-				local bufnr = args.buf
-				if vim.bo.filetype == "snacks_picker_input" then
-					vim.api.nvim_buf_set_name(bufnr, "snacks_picker_input")
-				else
-					if vim.bo.filetype == "NvimTree" then
-						vim.api.nvim_buf_set_name(bufnr, "NvimTree")
-					end
-				end
-			end,
-		})
 		require("nvim-web-devicons").setup({
 			-- your personal icons can go here (to override)
 			-- you can specify color or cterm_color instead of specifying both of them
@@ -92,7 +79,7 @@ return {
 					icon = "",
 					name = "database-wal",
 				},
-				["NvimTree"] = {
+				["NvimTree_1"] = {
 					icon = "",
 					name = "NvimTree",
 				},
@@ -107,10 +94,6 @@ return {
 				["bash"] = {
 					icon = "",
 					name = "Bash",
-				},
-				["snacks_picker_input"] = {
-					icon = "",
-					name = "Prompt",
 				},
 				["exclude"] = {
 					icon = "",
