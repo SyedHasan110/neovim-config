@@ -18,6 +18,7 @@ vim.opt.listchars = {
 vim.diagnostic.config({
 	underline = true,
 	virtual_text = {
+		current_line = nil,
 		prefix = "●", -- Could be '●', '▎', 'x'
 	},
 	update_in_insert = true,
