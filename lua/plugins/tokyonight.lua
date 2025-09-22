@@ -36,9 +36,10 @@ return {
 				}
 				highlights.NvimTreeModifiedIcon = {
 					fg = colors.warning,
-					link = nil,
-					global_link = nil,
+					link = 0,
+					global_link = 0,
 				}
+
 				highlights.DiagnosticUnderlineError.undercurl = nil
 				highlights.DiagnosticUnderlineError.underdashed = true
 
@@ -60,6 +61,11 @@ return {
 
 				highlights["@lsp.typemod.macro.library.rust"] = {
 					fg = colors.yellow,
+				}
+				highlights.BlinkCmpKindFile = {
+					bg = "NONE",
+					link = 0,
+					global_link = 0,
 				}
 			end,
 		})
