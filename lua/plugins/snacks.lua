@@ -23,22 +23,6 @@ return {
 				})
 			end,
 		},
-		{
-			"<a-d>",
-			function()
-				Snacks.picker.diagnostics_buffer()
-			end,
-			desc = "Diagnostics Buffer",
-		},
-		{
-			"<leader>ss",
-			function()
-				Snacks.picker.lsp_symbols({
-					live = true,
-				})
-			end,
-			desc = "LSP Workspace Symbols",
-		},
 	},
 	config = function()
 		local function rename_lsp_symbol()
