@@ -60,7 +60,7 @@ return {
 				}
 
 				highlights["@lsp.typemod.macro.library.rust"] = {
-					fg = colors.yellow,
+					fg = colors.orange,
 				}
 				highlights.BlinkCmpKindFile = {
 					bg = "NONE",
