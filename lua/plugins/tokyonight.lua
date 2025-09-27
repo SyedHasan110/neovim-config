@@ -61,11 +61,25 @@ return {
 
 				highlights["@lsp.typemod.macro.library.rust"] = {
 					fg = colors.orange,
+					link = nil,
+					global_link = nil,
 				}
+
+				highlights["@lsp.typemod.macro.defaultLibrary.rust"] = {
+					fg = colors.orange,
+					link = nil,
+					global_link = nil,
+				}
+
 				highlights.BlinkCmpKindFile = {
 					bg = "NONE",
 					link = 0,
 					global_link = 0,
+				}
+				highlights["@keyword.import.rust"] = {
+					link = nil,
+					global_link = nil,
+					fg = colors.purple,
 				}
 			end,
 		})
