@@ -70,6 +70,10 @@ return {
 					global_link = nil,
 					fg = colors.purple,
 				}
+
+				highlights.NvimTreeIndentMarker = {
+					fg = colors.comment,
+				}
 			end,
 		})
 		vim.cmd([[colorscheme tokyonight]])
