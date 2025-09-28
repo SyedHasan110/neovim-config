@@ -2,7 +2,7 @@ return {
 	"neovim/nvim-lspconfig",
 	dependencies = { "saghen/blink.cmp" },
 	config = function()
-		vim.lsp.config("*", {
+		vim.lsp.config("lua_ls", {
 			settings = {
 				Lua = {
 					diagnostics = {
@@ -15,7 +15,10 @@ return {
 						enable = true,
 					},
 				},
-
+			},
+		})
+		vim.lsp.config("rust_analyzer", {
+			settings = {
 				["rust-analyzer"] = {
 					inlayHints = {
 						discriminantHints = {
@@ -39,6 +42,17 @@ return {
 								enable = true,
 							},
 						},
+					},
+				},
+			},
+		})
+
+		vim.lsp.config("ruff", {
+			init_options = {
+				settings = {
+					-- Ruff language server settings go here
+					lint = {
+						enable = false,
 					},
 				},
 			},

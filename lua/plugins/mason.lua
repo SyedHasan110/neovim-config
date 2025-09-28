@@ -48,15 +48,18 @@ return {
 			"json-lsp",
 			"css-lsp",
 			"taplo",
+			"ruff",
+			"ty",
 		}
 
-		local fmt_pkg = {
+		local other_pkg = {
 			"biome",
 			"stylua",
+			"uv",
 		}
 		local mpkgs = {}
 		table.move(lsp_pkg, 1, #lsp_pkg, 1, mpkgs)
-		table.move(fmt_pkg, 1, #fmt_pkg, #mpkgs + 1, mpkgs)
+		table.move(other_pkg, 1, #other_pkg, #mpkgs + 1, mpkgs)
 
 		local mr = require("mason-registry")
 		mr.refresh(function()

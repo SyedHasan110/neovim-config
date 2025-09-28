@@ -21,6 +21,7 @@ return {
 				css = { "biome" },
 				cpp = { "clang-format" },
 				lua = { "stylua" },
+				python = { "ruff_format" },
 				-- Conform will run multiple formatters sequentially
 				-- python = { "isort", "black" },
 				-- You can customize some of the format options for the filetype (:help conform.format)
