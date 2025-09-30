@@ -5,9 +5,6 @@ return {
 		vim.lsp.config("lua_ls", {
 			settings = {
 				Lua = {
-					diagnostics = {
-						workspaceEvent = "OnChange",
-					},
 					format = {
 						enable = true,
 					},
