@@ -33,6 +33,10 @@ return {
 			-- same as `override` but specifically for overrides by filename
 			-- takes effect when `strict` is true
 			override_by_filename = {
+				[".python-version"] = {
+					icon = "",
+					name = "PythonVersion",
+				},
 				[".gitignore"] = {
 					icon = "  ",
 					name = "Gitignore",
@@ -103,6 +107,10 @@ return {
 			-- same as `override` but specifically for overrides by extension
 			-- takes effect when `strict` is true
 			override_by_extension = {
+				["sample"] = {
+					icon = "",
+					name = "Github_Sample",
+				},
 				["css"] = {
 					icon = "",
 					color = "#7aa2f7",
