@@ -74,7 +74,7 @@ return {
 								if instance.window.is_open() == false then
 									return
 								end
-							end, 10)
+							end, 5)
 						end
 					end)
 				end
