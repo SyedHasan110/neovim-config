@@ -81,8 +81,6 @@ return {
 			end
 		end)
 
-		vim.lsp.enable(lsp_pkg)
-
 		vim.api.nvim_create_autocmd("LspAttach", {
 			callback = function(args)
 				local client_name = vim.lsp.get_client_by_id(args.data.client_id).name

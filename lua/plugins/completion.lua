@@ -62,6 +62,7 @@ return {
 						max_height = 18,
 						winblend = 0,
 						scrolloff = 0,
+						auto_show_delay_ms = 0,
 						border = "double",
 						draw = {
 							gap = 2,
@@ -71,6 +72,7 @@ return {
 						},
 					},
 					list = {
+						max_items = 100,
 						selection = {
 							preselect = true,
 							auto_insert = false,
