@@ -18,12 +18,13 @@ vim.opt.listchars = {
 vim.diagnostic.config({
 	underline = true,
 	virtual_text = {
+		hl_mode = "combine",
 		current_line = nil,
 		prefix = "●", -- Could be '●', '▎', 'x'
 	},
 	update_in_insert = true,
 	severity_sort = true,
-	signs = false,
+	signs = true,
 })
 
 vim.g.markdown_fenced_languages = {

@@ -15,6 +15,17 @@ return {
 			},
 		})
 		vim.lsp.config("rust_analyzer", {
+			capabilities = {
+				experimental = {
+					commands = {
+						commands = {
+							"rust-analyzer.showReferences",
+							"rust-analyzer.runSingle",
+							"rust-analyzer.debugSingle",
+						},
+					},
+				},
+			},
 			settings = {
 				["rust-analyzer"] = {
 					inlayHints = {
