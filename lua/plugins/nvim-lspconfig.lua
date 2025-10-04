@@ -65,5 +65,12 @@ return {
 				},
 			},
 		})
+
+		vim.api.nvim_create_autocmd("BufWritePost", {
+			pattern = "*.rs",
+			callback = function(args)
+				vim.lsp.codelens.refresh({ bufnr = args.buf })
+			end,
+		})
 	end,
 }
