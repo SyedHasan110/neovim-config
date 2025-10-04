@@ -15,6 +15,8 @@ vim.opt.listchars = {
 	nbsp = "‧",
 }
 
+vim.o.signcolumn = "yes:2"
+
 vim.diagnostic.config({
 	underline = true,
 	virtual_text = {
@@ -24,7 +26,14 @@ vim.diagnostic.config({
 	},
 	update_in_insert = true,
 	severity_sort = true,
-	signs = true,
+	signs = {
+		text = {
+			[vim.diagnostic.severity.ERROR] = "", -- Error icon (e.g., from Nerd Fonts)
+			[vim.diagnostic.severity.WARN] = "", -- Warning icon
+			[vim.diagnostic.severity.INFO] = "", -- Info icon
+			[vim.diagnostic.severity.HINT] = "", -- Hint icon
+		},
+	},
 })
 
 vim.g.markdown_fenced_languages = {
