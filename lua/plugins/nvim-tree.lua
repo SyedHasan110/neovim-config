@@ -33,7 +33,7 @@ return {
 				icons = {
 					hint = "",
 					info = "",
-					warning = "",
+					warning = "",
 					error = "",
 				},
 			},
