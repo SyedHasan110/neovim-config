@@ -74,6 +74,18 @@ return {
 				highlights.NvimTreeIndentMarker = {
 					fg = colors.comment,
 				}
+
+				highlights["@lsp.typemod.enumMember.defaultLibrary.rust"] = {
+					link = "BlinkCmpKindEnumMember",
+				}
+
+				highlights["@constant.builtin.rust"] = {
+					link = "BlinkCmpKindEnumMember",
+				}
+
+				highlights["@type.builtin"] = {
+					fg = colors.yellow,
+				}
 			end,
 		})
 		vim.cmd([[colorscheme tokyonight]])

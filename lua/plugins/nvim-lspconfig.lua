@@ -28,9 +28,38 @@ return {
 			},
 			settings = {
 				["rust-analyzer"] = {
+					completion = {
+						privateEditable = {
+							enable = true,
+						},
+						fullFunctionSignatures = {
+							enable = true,
+						},
+					},
 					inlayHints = {
+						expressionAdjustmentHints = {
+							enable = "always",
+						},
 						discriminantHints = {
 							enable = "always",
+						},
+						genericParameterHints = {
+							type = {
+								enable = true,
+							},
+							lifetime = {
+								enable = true,
+							},
+						},
+						implicitDrops = {
+							enable = true,
+						},
+						implicitSizedBoundHints = {
+							enable = true,
+						},
+						lifetimeElisionHints = {
+							useParameterNames = true,
+							enable = true,
 						},
 					},
 					semanticHighlighting = {
