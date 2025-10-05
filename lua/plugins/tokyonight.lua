@@ -82,6 +82,10 @@ return {
 				highlights["@constant.builtin.rust"] = {
 					link = "BlinkCmpKindEnumMember",
 				}
+
+				highlights["LspReferenceText"] = {
+					bg = colors.bg_highlight,
+				}
 			end,
 		})
 		vim.cmd([[colorscheme tokyonight]])
