@@ -82,10 +82,6 @@ return {
 				highlights["@constant.builtin.rust"] = {
 					link = "BlinkCmpKindEnumMember",
 				}
-
-				highlights["@type.builtin"] = {
-					fg = colors.yellow,
-				}
 			end,
 		})
 		vim.cmd([[colorscheme tokyonight]])
