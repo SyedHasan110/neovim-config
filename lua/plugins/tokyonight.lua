@@ -82,7 +82,11 @@ return {
 				}
 
 				highlights.Special = {
-					fg = "#70c0e8",
+					fg = "#90caf9",
+				}
+
+				highlights["@lsp.typemod.method.defaultLibrary.rust"] = {
+					link = nil,
 				}
 
 				highlights["@lsp.typemod.struct.defaultLibrary.rust"] = {
