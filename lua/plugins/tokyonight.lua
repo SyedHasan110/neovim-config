@@ -100,6 +100,10 @@ return {
 				highlights["@lsp.type.struct.rust"] = {
 					link = "Type",
 				}
+
+				highlights["@lsp.typemod.enumMember.defaultLibrary.rust"] = {
+					link = nil,
+				}
 			end,
 		})
 		vim.cmd([[colorscheme tokyonight]])
