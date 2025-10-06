@@ -85,6 +85,10 @@ return {
 					fg = "#90caf9",
 				}
 
+				highlights["@lsp.type.lifetime.rust"] = {
+					fg = colors.fg,
+				}
+
 				highlights["@lsp.typemod.method.defaultLibrary.rust"] = {
 					link = nil,
 				}
