@@ -55,36 +55,50 @@ return {
 				highlights["@lsp.type.unresolvedReference"].undercurl = nil
 				highlights["@lsp.type.unresolvedReference"].underdashed = true
 
-				highlights["@lsp.typemod.builtinAttribute.attribute.rust"] = {
-					fg = colors.green2,
-				}
-
 				highlights.BlinkCmpKindFile = {
 					bg = "NONE",
 					link = 0,
 					global_link = 0,
 				}
 
-				highlights["@keyword.import.rust"] = {
-					link = nil,
-					global_link = nil,
-					fg = colors.purple,
-				}
-
 				highlights.NvimTreeIndentMarker = {
 					fg = colors.comment,
 				}
 
-				highlights["@lsp.typemod.enumMember.defaultLibrary.rust"] = {
-					link = "BlinkCmpKindEnumMember",
-				}
-
-				highlights["@constant.builtin.rust"] = {
-					link = "BlinkCmpKindEnumMember",
-				}
-
 				highlights["LspReferenceText"] = {
 					bg = colors.bg_highlight,
+				}
+
+				highlights.PreProc = {
+					fg = "#40e0d0",
+				}
+
+				highlights["@type.builtin"] = {
+					fg = "#ff9cae",
+				}
+
+				highlights.Type = {
+					fg = "#ffcc66",
+				}
+
+				highlights.Special = {
+					fg = "#70c0e8",
+				}
+
+				highlights["@lsp.typemod.struct.defaultLibrary.rust"] = {
+					link = nil,
+				}
+
+				highlights["@lsp.typemod.enum.defaultLibrary.rust"] = {
+					link = nil,
+				}
+
+				highlights["@lsp.type.struct.rust"] = {
+					link = "@type.builtin",
+				}
+
+				highlights["@lsp.type.struct.rust"] = {
+					link = "Type",
 				}
 			end,
 		})
