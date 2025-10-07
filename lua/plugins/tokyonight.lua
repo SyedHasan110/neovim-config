@@ -70,7 +70,7 @@ return {
 				}
 
 				highlights.PreProc = {
-					fg = "#40e0d0",
+					fg = colors.green1,
 				}
 
 				highlights["@type.builtin"] = {
@@ -82,7 +82,7 @@ return {
 				}
 
 				highlights.Special = {
-					fg = "#98ACF8",
+					fg = colors.blue,
 				}
 
 				highlights["@markup.link.label.markdown_inline"] = {
