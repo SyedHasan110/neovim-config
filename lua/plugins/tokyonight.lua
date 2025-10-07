@@ -82,7 +82,11 @@ return {
 				}
 
 				highlights.Special = {
-					fg = "#90caf9",
+					fg = "#98ACF8",
+				}
+
+				highlights["@markup.link.label.markdown_inline"] = {
+					fg = "#70b1da",
 				}
 
 				highlights["@lsp.type.lifetime.rust"] = {
